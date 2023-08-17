@@ -1,28 +1,30 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import { ImTwitter, ImFacebook, ImVimeo } from 'react-icons/im';
 import { TfiGoogle } from 'react-icons/tfi';
 import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
-
 import styles from '../styles/NavBar.module.css';
 
-// import { ImUser } from 'react-icons/im';
-
 function NavBar() {
+  const navLinkStyles = ({ isActive }) => ({
+    backgroundColor: isActive ? '#98bf0d' : '#fff',
+    color: isActive ? '#fff' : 'inherit',
+  });
+
   return (
     <div>
-      <header className={`${styles.menuContainer}`}>
-        <div><BiSpa /></div>
+      <header className={`${styles.flexColumn}`}>
+        <div><BiSpa className={`${styles.logo}`} /></div>
         <nav>
           <ul className={`${styles.pagenav}`}>
-            <li><Link to="/">SERVICES</Link></li>
-            <li><Link to="/reserve">RESERVE</Link></li>
-            <li><Link to="/myreservations">MY RESERVATIONS</Link></li>
-            <li><Link to="/add-treatment">ADD SERVICE</Link></li>
-            <li><Link to="/delete">DELETE SERVICE</Link></li>
+            <li><NavLink style={navLinkStyles} to="/">SERVICES</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/reserve">RESERVE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/myreservations">MY RESERVATIONS</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/add-treatment">ADD SERVICE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/delete">DELETE SERVICE</NavLink></li>
           </ul>
         </nav>
-        <div className={`${styles.footer}`}>
+        <div className={`${styles.footer} ${styles.flexColumn}`}>
           <ul className={`${styles.socials}`}>
             <li><ImTwitter /></li>
             <li><ImFacebook /></li>
