@@ -17,11 +17,11 @@ function NavBar() {
         <div><BiSpa className={`${styles.logo}`} /></div>
         <nav>
           <ul className={`${styles.pagenav}`}>
-            <li><NavLink style={navLinkStyles} to="/">SERVICES</NavLink></li>
-            <li><NavLink style={navLinkStyles} to="/reserve">RESERVE</NavLink></li>
-            <li><NavLink style={navLinkStyles} to="/myreservations">MY RESERVATIONS</NavLink></li>
-            <li><NavLink style={navLinkStyles} to="/add-treatment">ADD SERVICE</NavLink></li>
-            <li><NavLink style={navLinkStyles} to="/delete">DELETE SERVICE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/services" end>SERVICES</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/services/reserve">RESERVE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/services/myreservations">MY RESERVATIONS</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/services/add_service">ADD SERVICE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/services/delete">DELETE SERVICE</NavLink></li>
           </ul>
         </nav>
         <div className={`${styles.footer} ${styles.flexColumn}`}>
