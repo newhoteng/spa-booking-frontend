@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+// import styles from '../styles/Forms.module.css';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -22,13 +23,10 @@ function Login() {
     }).then(() => {
       localStorage.clear();
       localStorage.setItem('isAuthenticated', 'true');
-      // localStorage.setItem('user-token', res.headers.get('Authorization'));
-      // res.headers.forEach(console.log);
-      // console.log(res.headers);
       // setTimeout(() => {
       //   navigate('/services');
       // }, 500);
-      // toast.success('Registered successfullu');
+      // toast.success('Registered successfully');
       navigate('/');
     }).catch(() => {
       // toast.error(`Failed :${err.message}`);
@@ -46,7 +44,9 @@ function Login() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          // className="form-control"
         />
+        <br />
         <input
           name="password"
           type="password"
@@ -55,6 +55,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <br />
         <button type="submit">log in</button>
       </form>
       <Link to="/register"><p>Don&apos;t have an account? Sign up</p></Link>
