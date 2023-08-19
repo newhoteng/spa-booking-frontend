@@ -11,16 +11,22 @@ function NavBar() {
     color: isActive ? '#fff' : 'inherit',
   });
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.pathname = '/login';
+  };
+
   return (
     <div>
       <header className={`${styles.flexColumn}`}>
+        <button type="button" onClick={handleLogout}>Logout</button>
         <div><BiSpa className={`${styles.logo}`} /></div>
         <nav>
           <ul className={`${styles.pagenav}`}>
-            <li><NavLink style={navLinkStyles} to="/">SERVICES</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/" end>SERVICES</NavLink></li>
             <li><NavLink style={navLinkStyles} to="/reserve">RESERVE</NavLink></li>
             <li><NavLink style={navLinkStyles} to="/myreservations">MY RESERVATIONS</NavLink></li>
-            <li><NavLink style={navLinkStyles} to="/add-treatment">ADD SERVICE</NavLink></li>
+            <li><NavLink style={navLinkStyles} to="/add_service">ADD SERVICE</NavLink></li>
             <li><NavLink style={navLinkStyles} to="/delete">DELETE SERVICE</NavLink></li>
           </ul>
         </nav>
