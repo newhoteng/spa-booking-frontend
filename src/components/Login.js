@@ -20,6 +20,14 @@ function Login() {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user),
     }).then(() => {
+      localStorage.clear();
+      localStorage.setItem('isAuthenticated', 'true');
+      // localStorage.setItem('user-token', res.headers.get('Authorization'));
+      // res.headers.forEach(console.log);
+      // console.log(res.headers);
+      // setTimeout(() => {
+      //   navigate('/services');
+      // }, 500);
       // toast.success('Registered successfullu');
       navigate('/services');
     }).catch(() => {
