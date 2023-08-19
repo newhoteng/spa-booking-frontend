@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+// import { redirect } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 
 function Register() {
@@ -8,7 +9,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ function Register() {
         username, email, password, passwordConfirmation,
       },
     };
-    // console.log(newUser);
+
     fetch('http://localhost:3001/signup', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -29,22 +30,6 @@ function Register() {
       // toast.error(`Failed :${err.message}`);
     });
   };
-
-  // export default async (user, score) => {
-  //   const response = await fetch(`${apiBaseUrl}games/${gameId}/scores/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json; charset=UTF-8',
-  //     },
-  //     body: JSON.stringify({
-  //       'user': user,
-  //       'score': score,
-  //     }),
-  //   });
-
-  //   const message = await response.json();
-  //   alert(`${message.result}`);
-  // };
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -96,6 +81,7 @@ function Register() {
         />
         <button type="submit">Register</button>
       </form>
+      <Link to="/"><p>Back</p></Link>
     </div>
   );
 }

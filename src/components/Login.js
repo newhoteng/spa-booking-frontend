@@ -1,22 +1,55 @@
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+
 function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const proceedLogin = (e) => {
+    e.preventDefault();
+    const user = {
+      user: {
+        username, password,
+      },
+    };
+
+    fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(user),
+    }).then(() => {
+      // toast.success('Registered successfullu');
+      navigate('/services');
+    }).catch(() => {
+      // toast.error(`Failed :${err.message}`);
+    });
+  };
+
   return (
     <div>
-      <hi>Login Form</hi>
-      <form>
+      <h1>Login Form</h1>
+      <form onSubmit={proceedLogin}>
         <input
-          name="title"
+          name="username"
           type="text"
           required
           placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          name="author"
+          name="password"
           type="password"
           required
           placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">log in</button>
       </form>
+      <Link to="/register"><p>Don&apos;t have an account? Sign up</p></Link>
     </div>
   );
 }
