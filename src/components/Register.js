@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 
 function Register() {
@@ -7,22 +8,43 @@ function Register() {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
 
+  const navigate = useNavigate;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
-      username, email, password, passwordConfirmation,
+      user: {
+        username, email, password, passwordConfirmation,
+      },
     };
     // console.log(newUser);
-    fetch('localhost:3001/signup', {
+    fetch('http://localhost:3001/signup', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
     }).then(() => {
-      toast.success('Registered successfullu');
-    }).catch((err) => {
-      toast.error(`Failed :${err.message}`);
+      // toast.success('Registered successfullu');
+      navigate('/');
+    }).catch(() => {
+      // toast.error(`Failed :${err.message}`);
     });
   };
+
+  // export default async (user, score) => {
+  //   const response = await fetch(`${apiBaseUrl}games/${gameId}/scores/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json; charset=UTF-8',
+  //     },
+  //     body: JSON.stringify({
+  //       'user': user,
+  //       'score': score,
+  //     }),
+  //   });
+
+  //   const message = await response.json();
+  //   alert(`${message.result}`);
+  // };
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
