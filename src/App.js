@@ -9,16 +9,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<PrivateRoutes />}>
-          <Route element={<NavBar />} path="/services" exact>
+          <Route element={<NavBar />} path="/" exact>
             <Route index element={<h1 style={{ marginLeft: '250px' }}>Home page goes here</h1>} />
-            <Route path="/services/reserve" element={<h1 style={{ marginLeft: '250px' }}>Reserve page goes here</h1>} />
-            <Route path="/services/myreservations" element={<h1 style={{ marginLeft: '250px' }}>My reservations page goes here</h1>} />
-            <Route path="/services/add_service" element={<h1 style={{ marginLeft: '250px' }}>Add treatment page goes here</h1>} />
-            <Route path="/services/delete" element={<h1 style={{ marginLeft: '250px' }}>Delete page goes here</h1>} />
-            <Route path="/services/*" element={<div style={{ marginLeft: '250px' }}>Page not found</div>} />
+            <Route path="/reserve" element={<h1 style={{ marginLeft: '250px' }}>Reserve page goes here</h1>} />
+            <Route path="/myreservations" element={<h1 style={{ marginLeft: '250px' }}>My reservations page goes here</h1>} />
+            <Route path="/add_service" element={<h1 style={{ marginLeft: '250px' }}>Add treatment page goes here</h1>} />
+            <Route path="/delete" element={<h1 style={{ marginLeft: '250px' }}>Delete page goes here</h1>} />
+            <Route path="/*" element={<div style={{ marginLeft: '250px' }}>Page not found</div>} />
           </Route>
         </Route>
       </Routes>

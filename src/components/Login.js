@@ -29,7 +29,7 @@ function Login() {
       //   navigate('/services');
       // }, 500);
       // toast.success('Registered successfullu');
-      navigate('/services');
+      navigate('/');
     }).catch(() => {
       // toast.error(`Failed :${err.message}`);
     });

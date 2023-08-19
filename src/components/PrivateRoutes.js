@@ -27,7 +27,7 @@ function PrivateRoutes() {
   const isAuthenticated = localStorage.getItem('isAuthenticated');
   console.log('this', isAuthenticated);
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoutes;
