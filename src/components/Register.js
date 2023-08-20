@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-// import { redirect } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
 
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false); // State to track successful registration
 
   const navigate = useNavigate();
 
@@ -23,25 +22,15 @@ function Register() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
-    }).then(() => {
-      // toast.success('Registered successfullu');
-      navigate('/');
-    }).catch(() => {
-      // toast.error(`Failed :${err.message}`);
-    });
+    })
+      .then(() => {
+        setIsSuccess(true); // Set isSuccess to true on successful registration
+        setTimeout(() => navigate('/'), 1500); // Redirect after 1.500 seconds
+      })
+      .catch(() => {
+        // Handle registration failure here
+      });
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newBook = { item_id: uuidv4(), ...payload };
-  //   dispatch(addBook(newBook));
-  //   dispatch(postBook(newBook));
-  //   setPayload({
-  //     ...payload,
-  //     title: '',
-  //     author: '',
-  //   });
-  // };
 
   return (
     <div>
@@ -82,6 +71,12 @@ function Register() {
         <button type="submit">Register</button>
       </form>
       <Link to="/"><p>Back</p></Link>
+
+      {isSuccess && (
+        <div className="success-message">
+          Account successfully created!✅ You will be redirected to the  Log in page.
+        </div>
+      )}
     </div>
   );
 }
