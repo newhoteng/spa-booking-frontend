@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <div>
       <header className={`${styles.flexColumn}`}>
-        <button type="button" onClick={handleLogout}>Logout</button>
+        <button className="btn btn-outline-secondary" type="button" onClick={handleLogout}>Logout</button>
         <div><BiSpa className={`${styles.logo}`} /></div>
         <nav>
           <ul className={`${styles.pagenav}`}>

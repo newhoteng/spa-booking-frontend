@@ -75,7 +75,7 @@ function Register() {
           className="form-control"
         />
         <br />
-        <button type="submit" className="btn btn-primary">Register</button>
+        <button type="submit" className="btn btn-outline-secondary">Register</button>
       </form>
       <Link to="/"><p>Back</p></Link>
     </div>

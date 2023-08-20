@@ -15,7 +15,13 @@ header {
   width: 250px;
   height: 100vh;
   position: fixed;
-  gap: 7.5rem;
+  gap: 15vh;
+}
+
+header button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 nav {
@@ -54,14 +60,17 @@ nav li:hover {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 .footer {
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .footer p {
   font-size: 0.7rem;
+  margin: 0;
 }
 
 .logo {

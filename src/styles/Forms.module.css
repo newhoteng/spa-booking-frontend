@@ -1,20 +1,14 @@
 .formContainer {
-  /* position:relative; */
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  box-shadow: inset 0 0 0 1000vmax rgba(255, 180, 0, 255);
+  background: url("spa2.jpeg") no-repeat center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000vmax rgba(255, 180, 0, 0.7);
 }
-
-/* .formContainer:before {
-  content: "\25AE";
-  left:-5px;
-  position:absolute;
-  top:0;
-} */
 
 form {
   min-width: 275px;
@@ -29,54 +23,83 @@ input[type="password"]:focus {
   background: transparent;
 }
 
-.btn-primary {
-  background-color: #98be0e !important;
-}
-
 .mytextwithicon {
   position:relative;
 }
 
 .formContainer a {
-  /* text-decoration: none; */
   color: inherit;
-  /* display: block; */
-  /* padding: 1rem; */
-  /* letter-spacing: -1px; */
 }
 
-/* .mytextwithicon:before {
-  content: "\25AE";
-  left:-5px;
-  position:absolute;
-  top:0;
-} */
-
-/* .btn {
-  padding-left: 32px;
-  position: relative;
-} */
-
-/* .btn:before {
-  position: absolute;
-  font-family: 'FontAwesome';
-  top: 0;
-  left: 10px;
-  content: "\f005";
-} */
-
-/* .prev-conf1,
-.prev-conf2 {
-  position: relative;
-  width: 295px;
-  height: 165px;
-  overflow: hidden;
-  background: url("images/previousmeet1.webp") 0 0 no-repeat;
-  background-size: 100%;
-  box-shadow: inset 0 0 0 1000vmax rgba(236, 82, 66, 0.7);
-  color: white;
+.reserveForm {
+  margin-left: 250px;
+  background-color: #96bf03;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-} */
+  justify-content: center;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 150px;
+  height: 50px;
+}
+
+.selectBox {
+  appearance: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding: 0 30px 0 15px;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.arrowIcon {
+  height: 100%;
+  position: absolute;
+  right: 15px;
+  color: #fff;
+}
+
+.selectBox:focus {
+  outline: none;
+}
+
+.reserveForm button {
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+input[type="date"] {
+  background-color: transparent;
+  height: 50px;
+  width: 150px;
+  border-radius: 25px;
+  color: #fff;
+  padding: 0 15px;
+  border: 1px solid #fff;
+}
+
+.reserveForm form {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+@media all and (max-width: 768px) {
+  .reserveForm form {
+    flex-direction: column;
+  }
+}
