@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-// import styles from '../styles/Forms.module.css';
+import styles from '../styles/Forms.module.css';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -20,12 +20,10 @@ function Login() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user),
-    }).then(() => {
-      localStorage.clear();
-      localStorage.setItem('isAuthenticated', 'true');
-      // setTimeout(() => {
-      //   navigate('/services');
-      // }, 500);
+    }).then((res) => {
+      if (res.status === 200) {
+        localStorage.setItem('isAuthenticated', 'true');
+      }
       // toast.success('Registered successfully');
       navigate('/');
     }).catch(() => {
@@ -34,9 +32,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Login Form</h1>
-      <form onSubmit={proceedLogin}>
+    <div className={`${styles.formContainer}`}>
+      <form className="col-sm-6" onSubmit={proceedLogin}>
         <input
           name="username"
           type="text"
@@ -44,7 +41,7 @@ function Login() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          // className="form-control"
+          className="form-control"
         />
         <br />
         <input
@@ -54,9 +51,10 @@ function Login() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="form-control"
         />
         <br />
-        <button type="submit">log in</button>
+        <button type="submit" className="btn btn-primary">login</button>
       </form>
       <Link to="/register"><p>Don&apos;t have an account? Sign up</p></Link>
     </div>
