@@ -1,16 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const Url = 'http://localhost:3001/api/v1/reservations';
-// 'http://localhost:3001/api/v1/reservations'
-// 'http://127.0.0.1:3001/api/v1/reservations'
+const userId = JSON.parse(localStorage.getItem('user')).id;
 
-// {
-//   "user": {
-//       "username": "mike",
-//       "password": "123456"
-//   }
-// }
+const postUrl = 'http://localhost:3001/api/v1/reservations';
+const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
 
 const initialState = {
   userReservations: [],
@@ -18,22 +12,13 @@ const initialState = {
   error: undefined,
 };
 
+// api_v1_user_reservations GET /api/v1/users/:user_id/reservations(.:format)
 export const getUserReservations = createAsyncThunk('reservations/getUserReservations', async (name, thunkAPI) => {
   try {
-    const resp = await axios(`${Url}`);
+    const resp = await axios(`${getUrl}`);
     const { data } = resp;
-    console.log(data);
-    const arrayOfBooks = [];
-    // Object.entries(data).forEach((entry) => {
-    //   const bookObj = {
-    //     item_id: entry[0],
-    //     title: entry[1][0].title,
-    //     author: entry[1][0].author,
-    //     category: entry[1][0].category,
-    //   };
-    //   arrayOfBooks.push(bookObj);
-    // });
-    return arrayOfBooks;
+    // console.log(data[0].id);
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong');
   }
@@ -41,8 +26,8 @@ export const getUserReservations = createAsyncThunk('reservations/getUserReserva
 
 export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
   try {
-    const resp = await axios.post(`${Url}`, newReservation);
-    console.log(resp);
+    const resp = await axios.post(`${postUrl}`, newReservation);
+    // console.log(resp);
     return resp.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong');
@@ -64,7 +49,7 @@ const reservationsSlice = createSlice({
     });
     builder.addCase(getUserReservations.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.books = action.payload;
+      state.userReservations = action.payload;
     });
     builder.addCase(getUserReservations.rejected, (state, action) => {
       state.error = action.payload;

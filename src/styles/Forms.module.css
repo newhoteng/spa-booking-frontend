@@ -98,6 +98,14 @@ input[type="date"] {
   padding: 0 1rem;
 }
 
+.userReservations {
+ margin-left: 250px;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
 @media all and (max-width: 768px) {
   .reserveForm form {
     flex-direction: column;

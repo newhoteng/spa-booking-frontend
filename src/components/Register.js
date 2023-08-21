@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from '../styles/Forms.module.css';
 
-
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false); // State to track successful registration
+  const [isSuccess] = useState(false); // setIsSuccess State to track successful registration
 
   const navigate = useNavigate();
 
@@ -24,7 +23,7 @@ function Register() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
-      
+
     }).then((res) => {
       if (res.status === 200) {
         navigate('/login');
