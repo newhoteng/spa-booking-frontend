@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from '../styles/Forms.module.css';
-
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -24,7 +24,7 @@ function Register() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
-      
+
     }).then((res) => {
       if (res.status === 200) {
         navigate('/login');
