@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 
 const Services = ({ service }) => (
   <div>
-    <li className="focus:underline w-full px-1 my-4">
-      <h2>{service.name}</h2>
-      <p>{service.description}</p>
-      <p>{service.price}</p>
+    <li className="services">
+      <div className="image">
+        <img src={`${service.image}`} alt="service" />
+      </div>
+      <h2 className="header-font">{service.name}</h2>
+      <p className="home-font">{service.description}</p>
+      <p className="home-font">{service.price}</p>
     </li>
   </div>
 );
