@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-// import { redirect } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import styles from '../styles/Forms.module.css';
+
 
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false); // State to track successful registration
 
   const navigate = useNavigate();
 
@@ -23,30 +24,20 @@ function Register() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
-    }).then(() => {
-      // toast.success('Registered successfullu');
-      navigate('/');
+      
+    }).then((res) => {
+      if (res.status === 200) {
+        navigate('/login');
+      }
+      // toast.success('Registered successfully');
     }).catch(() => {
       // toast.error(`Failed :${err.message}`);
     });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newBook = { item_id: uuidv4(), ...payload };
-  //   dispatch(addBook(newBook));
-  //   dispatch(postBook(newBook));
-  //   setPayload({
-  //     ...payload,
-  //     title: '',
-  //     author: '',
-  //   });
-  // };
-
   return (
-    <div>
-      <h1>Registration Form</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={`${styles.formContainer}`}>
+      <form className="col-sm-6" onSubmit={handleSubmit}>
         <input
           name="username"
           type="text"
@@ -54,7 +45,9 @@ function Register() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="email"
           type="text"
@@ -62,7 +55,9 @@ function Register() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="author"
           type="password"
@@ -70,7 +65,9 @@ function Register() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="password_confirmation"
           type="password"
@@ -78,10 +75,18 @@ function Register() {
           placeholder="Confirm Password"
           value={passwordConfirmation}
           onChange={(e) => setPasswordCon(e.target.value)}
+          className="form-control"
         />
-        <button type="submit">Register</button>
+        <br />
+        <button type="submit" className="btn btn-outline-secondary">Register</button>
       </form>
       <Link to="/"><p>Back</p></Link>
+
+      {isSuccess && (
+        <div className="success-message">
+          Account successfully created!✅ You will be redirected to the  Log in page.
+        </div>
+      )}
     </div>
   );
 }

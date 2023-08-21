@@ -28,7 +28,7 @@ const HomePage = () => {
               {services.map((service) => (
                 <Services
                   key={service.id}
-                  to={service}
+                  to={service.name}
                   name={service.name}
                   image={service.image}
                   description={service.description}
