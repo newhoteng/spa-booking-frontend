@@ -12,7 +12,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <main className="home">
+    <main className="home" id="home">
       <h1>Spa Services</h1>
       {!isLoading && services.length === 0 && (
         <p className="home-font">
@@ -23,7 +23,7 @@ const HomePage = () => {
       {isLoading ? <h1>Loading...</h1>
         : (
           <div>
-            <p className="home-font">Please select a service or two!</p>
+            <p className="p-font">Please select a service or two!</p>
             <ul className="service-ul">
               {services.map((service) => (
                 <Services

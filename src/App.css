@@ -1,27 +1,35 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
   scroll-behavior: smooth;
 }
 
-.home {
+html {
+  font-size: 1em;
+  margin: 0;
+  direction: flex;
+}
+
+.home,
+#home {
   direction: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* width: %; */
+  width: 60%;
   padding-top: 5em;
+  padding-left: 5em;
   text-align: center;
+  margin: 0 auto;
 }
 
 .home-font {
-  font-size: 0.5em;
+  font-size: 1em;
 }
 
 .p-font {
-  font-size: 0.3em;
+  font-size: 0.8em;
 }
 
 .icons {
@@ -33,12 +41,14 @@
 
 .service-ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 2fr);
+  gap: 3em;
 }
 
 .image {
-  width: 5em;
-  height: 5em;
+  width: 250px;
+  height: 250px;
+  /* height: 5em; */
   border: 1px solid black;
   object-fit: cover;
   margin: 0 auto;
