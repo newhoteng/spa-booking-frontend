@@ -20,6 +20,35 @@
   font-size: 0.5em;
 }
 
+.p-font {
+  font-size: 0.3em;
+}
+
+.icons {
+  display: flex;
+  font-size: large;
+  justify-content: center;
+}
+
+.service-ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.image {
+  width: 5em;
+  height: 5em;
+  border: 1px solid black;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.services {
+  display: flex;
+  margin-top: 1em;
+  flex-direction: column;
+}
+
 /* .home {
   top: 50%;
   left: 50%;
