@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import styles from '../styles/Forms.module.css';
+
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -22,20 +24,20 @@ function Register() {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
-    })
-      .then(() => {
-        setIsSuccess(true); // Set isSuccess to true on successful registration
-        setTimeout(() => navigate('/'), 1500); // Redirect after 1.500 seconds
-      })
-      .catch(() => {
-        // Handle registration failure here
-      });
+      
+    }).then((res) => {
+      if (res.status === 200) {
+        navigate('/login');
+      }
+      // toast.success('Registered successfully');
+    }).catch(() => {
+      // toast.error(`Failed :${err.message}`);
+    });
   };
 
   return (
-    <div>
-      <h1>Registration Form</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={`${styles.formContainer}`}>
+      <form className="col-sm-6" onSubmit={handleSubmit}>
         <input
           name="username"
           type="text"
@@ -43,7 +45,9 @@ function Register() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="email"
           type="text"
@@ -51,7 +55,9 @@ function Register() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="author"
           type="password"
@@ -59,7 +65,9 @@ function Register() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="form-control"
         />
+        <br />
         <input
           name="password_confirmation"
           type="password"
@@ -67,8 +75,10 @@ function Register() {
           placeholder="Confirm Password"
           value={passwordConfirmation}
           onChange={(e) => setPasswordCon(e.target.value)}
+          className="form-control"
         />
-        <button type="submit">Register</button>
+        <br />
+        <button type="submit" className="btn btn-outline-secondary">Register</button>
       </form>
       <Link to="/"><p>Back</p></Link>
 

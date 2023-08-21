@@ -1,3 +1,105 @@
+.formContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: url("spa2.jpeg") no-repeat center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000vmax rgba(255, 180, 0, 0.7);
+}
+
 form {
-  width: 500px;
+  min-width: 275px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background: transparent;
+}
+
+.mytextwithicon {
+  position:relative;
+}
+
+.formContainer a {
+  color: inherit;
+}
+
+.reserveForm {
+  margin-left: 250px;
+  background-color: #96bf03;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 150px;
+  height: 50px;
+}
+
+.selectBox {
+  appearance: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding: 0 30px 0 15px;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.arrowIcon {
+  height: 100%;
+  position: absolute;
+  right: 15px;
+  color: #fff;
+}
+
+.selectBox:focus {
+  outline: none;
+}
+
+.reserveForm button {
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+input[type="date"] {
+  background-color: transparent;
+  height: 50px;
+  width: 150px;
+  border-radius: 25px;
+  color: #fff;
+  padding: 0 15px;
+  border: 1px solid #fff;
+}
+
+.reserveForm form {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+@media all and (max-width: 768px) {
+  .reserveForm form {
+    flex-direction: column;
+  }
 }
