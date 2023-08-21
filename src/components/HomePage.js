@@ -4,16 +4,14 @@ import Services from './Services';
 
 const HomePage = ({ services }) => (
   <main className="home">
-    <div>
-      <h1>Spa Services</h1>
-      <p className="home-font">Please select a service or two!</p>
-      {services.length === 0 && <p className="home-font">No available service. Please add a service to view.</p>}
-      <ul className="focus:underline w-full px-1 my-4">
-        {services.map((service) => (
-          <Services key={service.id} service={service} />
-        ))}
-      </ul>
-    </div>
+    <h1>Spa Services</h1>
+    <p className="home-font">Please select a service or two!</p>
+    {services.length === 0 && <p className="home-font">No available service. Please add a service to view.</p>}
+    <ul className="service-ul">
+      {services.map((service) => (
+        <Services key={service.id} service={service} />
+      ))}
+    </ul>
   </main>
 );
 
