@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
@@ -12,7 +11,9 @@ const Services = ({
         <div className="image">
           <img src={`${image}`} alt="service" />
         </div>
-        <h2 className="header-font">{name}</h2>
+        <h2 className="header-font">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </h2>
         <p className="p-font">
           {description.substring(0, 20)}
           ...
