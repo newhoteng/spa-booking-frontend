@@ -47,8 +47,17 @@
   display: flex;
   margin-top: 1em;
   flex-direction: column;
+  text-decoration: none;
+  color: black;
 }
 
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
 /* .home {
   top: 50%;
   left: 50%;
