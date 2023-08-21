@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAllServices } from '../redux/serviceSlice';
@@ -9,7 +8,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setTimeout(() => { dispatch(fetchAllServices()); }, 5000);
+    setTimeout(() => { dispatch(fetchAllServices()); }, 2000);
   }, [dispatch]);
 
   return (
