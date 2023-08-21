@@ -1,26 +1,29 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
 
-const Services = ({ service }) => (
+const Services = ({ name, image, description }) => (
   <div>
     <li className="services">
       <div className="image">
-        <img src={`${service.image}`} alt="service" />
+        <img src={`${image}`} alt="service" />
       </div>
-      <h2 className="header-font">{service.name}</h2>
-      <p className="home-font">{service.description}</p>
-      <p className="home-font">{service.price}</p>
+      <h2 className="header-font">{name}</h2>
+      <p className="p-font">
+        {description.substring(0, 20)}
+        ...
+      </p>
     </li>
+    <div className="icons">
+      <CiFacebook />
+      <CiTwitter />
+      <CiInstagram />
+    </div>
   </div>
 );
 Services.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  service: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  ).isRequired,
-  // setServices: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 export default Services;
