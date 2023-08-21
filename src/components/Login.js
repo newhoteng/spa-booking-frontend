@@ -1,46 +1,57 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from '../styles/Forms.module.css';
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [payload, setPayload] = useState({
+    username: '',
+    password: '',
+  });
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setPayload({
+      ...payload,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const navigate = useNavigate();
 
-  const proceedLogin = (e) => {
+  const proceedLogin = async (e) => {
     e.preventDefault();
     const user = {
-      user: {
-        username, password,
-      },
+      user: payload,
     };
 
-    fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(user),
-    }).then((res) => {
-      if (res.status === 200) {
+    try {
+      const resp = await axios.post('http://localhost:3001/login', user);
+      if (resp.data.status.code === 200) {
         localStorage.setItem('isAuthenticated', 'true');
+        const loggedInUser = JSON.stringify(resp.data.status.data.user);
+        localStorage.setItem('user', loggedInUser);
+        navigate('/');
       }
-      // toast.success('Registered successfully');
-      navigate('/');
-    }).catch(() => {
-      // toast.error(`Failed :${err.message}`);
-    });
+      return {};
+    } catch (err) {
+      setErrorMessage(err.response.data);
+      return {};
+    }
   };
 
   return (
     <div className={`${styles.formContainer}`}>
+      <p>{errorMessage}</p>
       <form className="col-sm-6" onSubmit={proceedLogin}>
         <input
           name="username"
           type="text"
           required
           placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={payload.username}
+          onChange={handleChange}
           className="form-control"
         />
         <br />
@@ -49,8 +60,8 @@ function Login() {
           type="password"
           required
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={payload.password}
+          onChange={handleChange}
           className="form-control"
         />
         <br />
