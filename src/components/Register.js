@@ -8,7 +8,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordCon] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false); // State to track successful registration
+  const [isSuccess] = useState(false); // setIsSuccess State to track successful registration
 
   const navigate = useNavigate();
 

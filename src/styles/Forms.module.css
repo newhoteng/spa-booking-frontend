@@ -24,7 +24,7 @@ input[type="password"]:focus {
 }
 
 .mytextwithicon {
-  position:relative;
+  position: relative;
 }
 
 .formContainer a {
@@ -96,6 +96,26 @@ input[type="date"] {
   align-items: center;
   gap: 1.5rem;
   padding: 0 1rem;
+}
+
+.userReservations {
+  margin-left: 250px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userReservations table {
+  border-collapse: collapse;
+  margin: 2rem;
+}
+
+.userReservations td,
+.userReservations th {
+  border: 1px solid #dee2e6;
+  text-align: left;
+  padding: 8px;
 }
 
 @media all and (max-width: 768px) {
