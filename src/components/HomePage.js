@@ -1,0 +1,45 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchAllServices } from '../redux/serviceSlice';
+import Services from './Services';
+
+const HomePage = () => {
+  const { services, isLoading, isError } = useSelector((store) => store.services);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setTimeout(() => { dispatch(fetchAllServices()); }, 2000);
+  }, [dispatch]);
+
+  return (
+    <main className="home" id="home">
+      <h1>Spa Services</h1>
+      {!isLoading && services.length === 0 && (
+        <p className="home-font">
+          No available service. Please add a service to view.
+        </p>
+      )}
+      {isError && <h1>Something went wrong please reload the page...</h1>}
+      {isLoading ? <h1>Loading...</h1>
+        : (
+          <div>
+            <p className="p-font">Please select a service or two!</p>
+            <ul className="service-ul">
+              {services.map((service) => (
+                <Services
+                  key={service.id}
+                  to={service.name}
+                  name={service.name}
+                  image={service.image}
+                  description={service.description}
+                />
+              ))}
+            </ul>
+          </div>
+
+        )}
+    </main>
+  );
+};
+
+export default HomePage;
