@@ -118,6 +118,10 @@ input[type="date"] {
   padding: 8px;
 }
 
+/* ul {
+  border: 1px solid red;
+} */
+
 @media all and (max-width: 768px) {
   .reserveForm form {
     flex-direction: column;

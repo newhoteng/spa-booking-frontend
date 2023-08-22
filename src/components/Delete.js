@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getUserReservations } from '../redux/reservations/reservationsSlice';
-import styles from '../styles/Forms.module.css';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { getUserReservations } from '../redux/reservations/reservationsSlice';
+// import styles from '../styles/Forms.module.css';
 
-function UserReservations() {
-  const { userReservations, isLoading, error } = useSelector((store) => store.userReservations);
-  const dispatch = useDispatch();
-  console.log(userReservations);
+function DeleteService() {
+  const { services } = useSelector((store) => store.services);
+  
+  // const dispatch = useDispatch();
+  console.log(services);
 
   // const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-  useEffect(() => {
-    if (!userReservations.length) {
-      dispatch(getUserReservations());
-    }
-  }, [dispatch, userReservations]);
+  // useEffect(() => {
+  //   if (!services.length) {
+  //     dispatch(getUserReservations());
+  //   }
+  // }, [dispatch, userReservations]);
 
   // useEffect(() => {
   //   if (!userReservations.length) {
@@ -67,4 +68,4 @@ function UserReservations() {
   );
 }
 
-export default UserReservations;
+export default DeleteService;

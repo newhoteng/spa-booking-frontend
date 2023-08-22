@@ -1,22 +1,33 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
 import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
+import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
 function ReserveForm() {
-  // const { services, isLoading, error } = useSelector((store) => store.services);
-  const services = [{ id: 4, name: 'Pedicure' }, { id: 5, name: 'Manicure' }];
   const cities = ['Accra', 'Kumasi', 'Abuja', 'London'];
 
+  const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (!services.length) {
+      dispatch(fetchAllServices());
+    }
+  }, [dispatch, services]);
+
+  const isAuthenticated = localStorage.getItem('isAuthenticated');
+  let userId = null;
+  if (isAuthenticated) {
+    userId = JSON.parse(localStorage.getItem('user')).id;
+  }
   const [payload, setPayload] = useState({
-    user_id: JSON.parse(localStorage.getItem('user')).id,
-    spa_service_id: services[0].id,
+    user_id: userId,
+    spa_service_id: '',
     date: '',
-    city: cities[0],
+    city: '',
   });
 
   const handleChange = (e) => {
@@ -35,9 +46,9 @@ function ReserveForm() {
     dispatch(postReservation(newReservation));
     setPayload({
       ...payload,
-      spa_service_id: services[0].id,
+      spa_service_id: '',
       date: '',
-      city: cities[0],
+      city: '',
     });
     navigate('/myreservations');
   };
@@ -51,8 +62,14 @@ function ReserveForm() {
     <div className={`${styles.reserveForm}`}>
       <form onSubmit={handleSubmit}>
         <div className={`${styles.selectContainer}`}>
-          <select value={payload.spa_service_id} name="spa_service_id" className={`${styles.selectBox}`} onChange={handleChange} required>
-            {/* <option disabled value="default">Service...</option> */}
+          <select
+            value={payload.spa_service_id}
+            name="spa_service_id"
+            className={`${styles.selectBox}`}
+            onChange={handleChange}
+            required
+          >
+            <option selected value="">Service...</option>
             {services.map((service) => (
               <option
                 key={service.id}
@@ -73,8 +90,14 @@ function ReserveForm() {
           onChange={handleChange}
         />
         <div className={`${styles.selectContainer}`}>
-          <select value={payload.city} name="city" className={`${styles.selectBox}`} onChange={handleChange} required>
-            {/* <option disabled value="default">Location...</option> */}
+          <select
+            value={payload.city}
+            name="city"
+            className={`${styles.selectBox}`}
+            onChange={handleChange}
+            required
+          >
+            <option value="" selected>Location...</option>
             {cities.map((city) => (
               <option
                 key={city}
