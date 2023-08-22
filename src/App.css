@@ -7,12 +7,13 @@
 html {
   font-size: 1em;
   margin: 0;
-  direction: flex;
+
+  /* direction: flex; */
 }
 
 .home,
 #home {
-  direction: flex;
+  /* direction: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -48,6 +49,7 @@ html {
 .image {
   width: 250px;
   height: 250px;
+
   /* height: 5em; */
   border: 1px solid black;
   object-fit: cover;
@@ -69,6 +71,7 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+
 /* .home {
   top: 50%;
   left: 50%;
