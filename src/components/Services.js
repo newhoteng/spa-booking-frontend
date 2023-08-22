@@ -3,9 +3,9 @@ import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 import facials from '../styles/facials.jpg';
 
-const Services = ({ name, to, description }) => (
+const Services = ({ name, id, description }) => (
   <div>
-    <Link to={to} className="services">
+    <Link to={`/services/${id}`} className="services">
       <li className="services">
         <div className="image">
           <img src={`${facials}`} alt="service" className="image" />

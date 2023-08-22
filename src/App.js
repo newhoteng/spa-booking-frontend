@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Register from './components/Register';
 import HomePage from './components/HomePage';
+import ServiceDetails from './components/ServiceDetails';
 import PrivateRoutes from './components/PrivateRoutes';
 import ReserveForm from './components/ReserveForm';
 import './App.css';
@@ -39,6 +40,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route element={<NavBar />} path="/" exact>
             <Route index element={<HomePage />} />
+            <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/reserve" element={<ReserveForm />} />
             <Route path="/myreservations" element={<UserReservations />} />
             <Route path="/add_service" element={<h1 style={{ marginLeft: '250px' }}>Add treatment page goes here</h1>} />
