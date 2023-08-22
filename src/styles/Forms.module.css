@@ -24,7 +24,7 @@ input[type="password"]:focus {
 }
 
 .mytextwithicon {
-  position:relative;
+  position: relative;
 }
 
 .formContainer a {
@@ -99,11 +99,11 @@ input[type="date"] {
 }
 
 .userReservations {
- margin-left: 250px;
- height: 100vh;
- display: flex;
- align-items: center;
- justify-content: center;
+  margin-left: 250px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userReservations table {
