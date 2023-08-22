@@ -1,7 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const userId = JSON.parse(localStorage.getItem('user')).id;
+const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+let userId = null;
+
+if (isAuthenticated) {
+  userId = JSON.parse(localStorage.getItem('user')).id;
+}
 
 const postUrl = 'http://localhost:3001/api/v1/reservations';
 const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
