@@ -12,22 +12,25 @@ const initialState = {
   error: undefined,
 };
 
-// api_v1_user_reservations GET /api/v1/users/:user_id/reservations(.:format)
 export const getUserReservations = createAsyncThunk('reservations/getUserReservations', async (name, thunkAPI) => {
   try {
     const resp = await axios(`${getUrl}`);
     const { data } = resp;
-    // console.log(data[0].id);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong');
   }
 });
 
+// const navigate = useNavigate();
 export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
   try {
     const resp = await axios.post(`${postUrl}`, newReservation);
-    // console.log(resp);
+    // console.log(resp.status);
+    // console.log(resp.data);
+    // if (resp.status === 201) {
+    //   navigate('/myreservations');
+    // }
     return resp.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong');

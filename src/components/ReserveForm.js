@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
 import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
 import styles from '../styles/Forms.module.css';
@@ -25,6 +26,8 @@ function ReserveForm() {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newReservation = payload;
@@ -36,6 +39,7 @@ function ReserveForm() {
       date: '',
       city: cities[0],
     });
+    navigate('/myreservations');
   };
 
   const minDate = () => {
