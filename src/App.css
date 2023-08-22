@@ -10,8 +10,7 @@ html {
   direction: flex;
 }
 
-.home,
-#home {
+.home {
   direction: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +21,43 @@ html {
   padding-left: 5em;
   text-align: center;
   margin: 0 auto;
+}
+
+.service-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-swiper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: static;
+}
+
+.swiper-btn {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: gray;
+  color: inherit;
+  text-decoration: none;
+  font-size: large;
+}
+
+.swiper-btn:hover {
+  background-color: green;
+  color: white;
+}
+
+/* .swiper-slide {
+  display: flex;
+  flex-direction: col;
+  justify-content: space-between;
+} */
+.swiper-svg {
+  width: 2em;
+  height: 2em;
 }
 
 .home-font {
