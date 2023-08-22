@@ -5,7 +5,7 @@ import URL from '../consts';
 const initialState = {
   services: [],
   isLoading: true,
-  isError: undefined,
+  isError: false,
 };
 
 export const fetchAllServices = createAsyncThunk(
@@ -30,6 +30,7 @@ export const serviceSlice = createSlice({
     builder
       .addCase(fetchAllServices.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
       })
       .addCase(fetchAllServices.fulfilled, (state, action) => {
         state.isLoading = false;
