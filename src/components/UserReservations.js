@@ -10,7 +10,7 @@ function UserReservations() {
   const isAuthenticated = localStorage.getItem('isAuthenticated');
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && !userReservations.length) {
       dispatch(getUserReservations());
     }
   }, [dispatch, userReservations]);
