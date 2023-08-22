@@ -7,8 +7,10 @@ function UserReservations() {
   const { userReservations, isLoading, error } = useSelector((store) => store.userReservations);
   const dispatch = useDispatch();
 
+  const isAuthenticated = localStorage.getItem('isAuthenticated');
+
   useEffect(() => {
-    if (!userReservations.length) {
+    if (isAuthenticated) {
       dispatch(getUserReservations());
     }
   }, [dispatch, userReservations]);
