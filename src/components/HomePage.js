@@ -61,7 +61,7 @@ const HomePage = () => {
           >
             {services.map((service) => (
               <SwiperSlide key={service.id} className="swiperSlide">
-                <Link to={`/services/${id}`} className="services">
+                <Link to={`/services/${service.id}`} className="services">
                   <div className="image">
                     <img src={service.image} alt="service" className="image" />
                   </div>
