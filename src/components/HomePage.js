@@ -48,6 +48,7 @@ const HomePage = () => {
         </p>
       )}
       {isError && <h1>Something went wrong please reload the page...</h1>}
+
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
@@ -60,7 +61,7 @@ const HomePage = () => {
           >
             {services.map((service) => (
               <SwiperSlide key={service.id} className="swiperSlide">
-                <Link to={service} className="services">
+                <Link to={`/services/${service.id}`} className="services">
                   <div className="image">
                     <img src={service.image} alt="service" className="image" />
                   </div>
