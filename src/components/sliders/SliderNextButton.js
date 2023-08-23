@@ -1,17 +1,12 @@
 import { useSwiper } from 'swiper/react';
 
-// eslint-disable-next-line react/prop-types
-function SliderNextButton({ className }) {
+function SliderNextButton() {
   const swiper = useSwiper();
-  const handleNextClick = () => {
-    swiper.slideNext(); // Slide to the next
-  };
   return (
     <button
+      onClick={() => swiper.slideNext()}
       type="button"
-      // onClick={() => swiper.slideNext()}
-      onClick={handleNextClick}
-      className={`swiper-btn ${className} next-button absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-gray-200 text-white flex justify-start items-center md:w-12 lg:w-20 py-3 pl-4 rounded-l-full hover:bg-lime-400`}
+      className="swiper-btn-next absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-gray-200 text-white flex justify-start items-center md:w-12 lg:w-20 py-3 pl-4 rounded-l-full hover:bg-lime-400"
     >
       <span>
         <svg
@@ -20,7 +15,7 @@ function SliderNextButton({ className }) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="swiper-svg"
+          className="w-4 h-6"
         >
           <path
             strokeLinecap="round"

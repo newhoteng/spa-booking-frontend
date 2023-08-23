@@ -5,9 +5,9 @@ function SliderPrevButton() {
 
   return (
     <button
-      type="button"
       onClick={() => swiper.slidePrev()}
-      className="swiper-btn absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-gray-200 text-white flex justify-end items-center md:w-12 lg:w-20 py-3 pr-4 rounded-r-full hover:bg-lime-400"
+      type="button"
+      className=" swiper-btn-prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-gray-200 text-white flex justify-end items-center md:w-12 lg:w-20 py-3 pr-4 rounded-r-full hover:bg-lime-400"
     >
       <span className="transform rotate-180">
         <svg
@@ -16,7 +16,7 @@ function SliderPrevButton() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="swiper-svg"
+          className="w-6 h-6"
         >
           <path
             strokeLinecap="round"
