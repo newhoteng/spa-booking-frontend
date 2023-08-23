@@ -1,5 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useState, useEffect } from 'react';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -8,6 +11,10 @@ import PrivateRoutes from './components/PrivateRoutes';
 import ReserveForm from './components/ReserveForm';
 import './App.css';
 import UserReservations from './components/UserReservations';
+import DeleteService from './components/Delete';
+// import { getUserReservations } from './redux/reservations/reservationsSlice';
+
+// import { useEffect } from 'react';
 
 function App() {
   // const API_URL = 'http://127.0.0.1:3001/api/v1/spa_services';
@@ -42,7 +49,7 @@ function App() {
             <Route path="/reserve" element={<ReserveForm />} />
             <Route path="/myreservations" element={<UserReservations />} />
             <Route path="/add_service" element={<h1 style={{ marginLeft: '250px' }}>Add treatment page goes here</h1>} />
-            <Route path="/delete" element={<h1 style={{ marginLeft: '250px' }}>Delete page goes here</h1>} />
+            <Route path="/delete" element={<DeleteService />} />
             <Route path="/*" element={<div style={{ marginLeft: '250px' }}>Page not found</div>} />
           </Route>
         </Route>

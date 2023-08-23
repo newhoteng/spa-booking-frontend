@@ -1,16 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const isAuthenticated = localStorage.getItem('isAuthenticated');
+// const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-let userId = null;
+// let userId = null;
 
-if (isAuthenticated) {
-  userId = JSON.parse(localStorage.getItem('user')).id;
-}
+// const userId = JSON.parse(localStorage.getItem('user'))?.id;
 
 const postUrl = 'http://localhost:3001/api/v1/reservations';
-const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
+// const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
 
 const initialState = {
   userReservations: [],
@@ -18,15 +16,19 @@ const initialState = {
   error: undefined,
 };
 
-export const getUserReservations = createAsyncThunk('reservations/getUserReservations', async (name, thunkAPI) => {
-  try {
-    const resp = await axios(`${getUrl}`);
-    const { data } = resp;
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('something went wrong');
-  }
-});
+export const getUserReservations = createAsyncThunk(
+  'reservations/getUserReservations',
+  async () => {
+    // console.log(userId);
+    try {
+      const resp = await axios.get(`http://localhost:3001/api/v1/users/${JSON.parse(localStorage.getItem('user')).id}/reservations`);
+      // const { data } = resp;
+      return resp.data;
+    } catch (error) {
+      return (error.message);
+    }
+  },
+);
 
 export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
   try {
@@ -52,11 +54,12 @@ const reservationsSlice = createSlice({
     });
     builder.addCase(getUserReservations.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.error = false;
       state.userReservations = action.payload;
     });
     builder.addCase(getUserReservations.rejected, (state, action) => {
-      state.error = action.payload;
       state.isLoading = false;
+      state.error = action.payload;
     });
     // postReservation
     builder.addCase(postReservation.pending, (state) => {

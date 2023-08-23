@@ -32,6 +32,7 @@ function Login() {
         localStorage.setItem('isAuthenticated', 'true');
         const loggedInUser = JSON.stringify(resp.data.status.data.user);
         localStorage.setItem('user', loggedInUser);
+        // window.location.href('/');
         navigate('/');
       }
       return {};

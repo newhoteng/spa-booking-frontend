@@ -118,6 +118,23 @@ input[type="date"] {
   padding: 8px;
 }
 
+.removed {
+  background-color: rgb(31, 165, 165);
+  border-radius: 4px;
+  border: 2px solid rgb(31, 165, 165);
+  color: white;
+  margin-right: 4px;
+}
+
+.add {
+  color: rgb(161, 155, 155);
+  height: 30px;
+  width: 140px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid rgb(92, 93, 94);
+}
+
 /* ul {
   border: 1px solid red;
 } */

@@ -1,32 +1,28 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import { useLocation } from 'react-router-dom';
 import { getUserReservations } from '../redux/reservations/reservationsSlice';
+import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
 function UserReservations() {
   const { userReservations, isLoading, error } = useSelector((store) => store.userReservations);
+  const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
-  console.log(userReservations);
+  // console.log(services);
 
-  // const isAuthenticated = localStorage.getItem('isAuthenticated');
-
-  useEffect(() => {
-    if (!userReservations.length) {
-      dispatch(getUserReservations());
-    }
-  }, [dispatch, userReservations]);
+  // const params = useLocation();
 
   // useEffect(() => {
-  //   if (!userReservations.length) {
-  //     dispatch(getUserReservations());
-  //   }
+  //   dispatch(getUserReservations());
+  //   console.log('fetch');
+  //   console.log({ userReservations, isLoading, error });
   // }, []);
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     dispatch(getUserReservations());
-  //   }
-  // }, [dispatch, userReservations]);
+  useEffect(() => {
+    dispatch(fetchAllServices());
+    dispatch(getUserReservations());
+  }, [dispatch]);
 
   if (isLoading) {
     return (
@@ -54,9 +50,9 @@ function UserReservations() {
           </tr>
         </thead>
         <tbody>
-          {userReservations.map((reservation) => (
+          {userReservations?.map((reservation) => (
             <tr key={reservation.id}>
-              <td>{reservation.spa_service_id}</td>
+              <td>{services.find((service) => service.id === reservation.spa_service_id)?.name}</td>
               <td>{reservation.date}</td>
               <td>{reservation.city}</td>
             </tr>

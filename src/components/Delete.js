@@ -1,33 +1,20 @@
 import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getUserReservations } from '../redux/reservations/reservationsSlice';
-// import styles from '../styles/Forms.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAllServices, removeService, toggleService } from '../redux/serviceSlice';
+import styles from '../styles/Forms.module.css';
+
+// , toggleService
 
 function DeleteService() {
-  const { services } = useSelector((store) => store.services);
-  
-  // const dispatch = useDispatch();
-  console.log(services);
+  const { services, isLoading, isError } = useSelector((store) => store.services);
 
-  // const isAuthenticated = localStorage.getItem('isAuthenticated');
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (!services.length) {
-  //     dispatch(getUserReservations());
-  //   }
-  // }, [dispatch, userReservations]);
-
-  // useEffect(() => {
-  //   if (!userReservations.length) {
-  //     dispatch(getUserReservations());
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     dispatch(getUserReservations());
-  //   }
-  // }, [dispatch, userReservations]);
+  useEffect(() => {
+    if (!services.length) {
+      dispatch(fetchAllServices());
+    }
+  }, [dispatch, services]);
 
   if (isLoading) {
     return (
@@ -36,7 +23,7 @@ function DeleteService() {
       </ul>
     );
   }
-  if (error) {
+  if (isError) {
     return (
       <ul className={`${styles.userReservations}`}>
         <h1>Something went wrong</h1>
@@ -50,16 +37,31 @@ function DeleteService() {
         <thead>
           <tr>
             <th>Service</th>
-            <th>Date</th>
-            <th>City</th>
+            {/* <th>Button</th> */}
           </tr>
         </thead>
         <tbody>
-          {userReservations.map((reservation) => (
-            <tr key={reservation.id}>
-              <td>{reservation.spa_service_id}</td>
-              <td>{reservation.date}</td>
-              <td>{reservation.city}</td>
+          {services?.map((service) => (
+            <tr key={service.id}>
+              <td>
+                {service.is_removed && <span className={`${styles.removed}`}>Removed</span>}
+                {' '}
+                {service.name}
+              </td>
+              <td>
+                <button
+                  type="button"
+                  className={service.is_removed ? styles.add : 'btn btn-danger'}
+                  onClick={
+                    () => {
+                      dispatch(removeService(service.id));
+                      dispatch(toggleService(service.id));
+                    }
+                  }
+                >
+                  {service.is_removed ? 'Add' : 'Delete'}
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -20,11 +20,26 @@ export const fetchAllServices = createAsyncThunk(
   },
 );
 
+export const removeService = createAsyncThunk('services/RemoveService', async (id, thunkAPI) => {
+  try {
+    await axios.delete(`http://localhost:3001/api/v1/spa_services/${id}`);
+    return {};
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong');
+  }
+});
+
 export const serviceSlice = createSlice({
   name: 'services',
   initialState,
   reducers: {
-
+    toggleService: (state, action) => {
+      const itemId = action.payload;
+      state.services = state.services.map((service) => {
+        if (service.id !== itemId) return service;
+        return { ...service, is_removed: !service.is_removed };
+      });
+    },
   },
   extraReducers(builder) {
     builder
@@ -43,4 +58,5 @@ export const serviceSlice = createSlice({
   },
 });
 
+export const { toggleService } = serviceSlice.actions;
 export default serviceSlice.reducer;
