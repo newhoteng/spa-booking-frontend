@@ -43,7 +43,7 @@ const ServiceDetails = () => {
           </div>
         </div>
       )}
-      <button type="submit">Book Now</button>
+      <button type="submit">Reserve</button>
     </div>
   );
 };
