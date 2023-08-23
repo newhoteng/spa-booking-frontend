@@ -14,19 +14,16 @@ html {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  width: 75%;
-
-  /* padding-top: 5em; */
-  padding-left: 5em;
   text-align: center;
-  margin: 0 auto;
+  margin-left: 250px;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .service-main {
   display: flex;
   flex-direction: column;
   position: relative;
-  border: 2px solid black;
   padding: 2em 3em;
   width: 100%;
 }
@@ -37,13 +34,13 @@ html {
   height: 100%;
 }
 
-.swiper-btn-next,
-.swiper-btn-prev {
+.swiper-btn-next {
   display: flex;
   position: absolute;
   align-items: center;
-  background-color: #099c18;
-  justify-content: center;
+  background-color: #96bf03;
+  justify-content: start;
+  right: 0;
   color: #fff;
   text-decoration: none;
   font-size: large;
@@ -51,24 +48,26 @@ html {
   height: 48px;
   top: 50%;
   translate: 0 -50%;
-  border: 2px solid #000;
-  border-radius: 12px;
+  border-radius: 5px 16px 16px 5px;
   padding: 2em 0;
-
-  /* margin: 0 1em; */
 }
 
 .swiper-btn-prev {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background-color: #96bf03;
   justify-content: end;
   left: 0;
-
-  /* padding-right: 5em;
-  margin-right: 6em; */
-}
-
-.swiper-btn-next {
-  justify-content: start;
-  right: 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: large;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  translate: 0 -50%;
+  border-radius: 16px  5px 5px 16px;
+  padding: 2em 0;
 }
 
 .swiper-btn:hover {
@@ -76,24 +75,23 @@ html {
   color: white;
 }
 
+.swiper-svg1 {
+  height: 2em;
+  text-align: center;
+  transform: scaleX(-1);
+}
+
 .swiper-svg {
-  width: 1em;
   height: 2em;
   text-align: center;
 }
 
 .swiper-slide {
-  /* text-align: center; */
-
-  /* font-size: 18px; */
   background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* margin-left: 2em;
-  margin-right: 2em; */
 }
 
 .home-font {
@@ -122,9 +120,11 @@ html {
   height: 250px;
 
   /* height: 5em; */
-  border: 1px solid black;
+
+  /* border: 1px solid black; */
   object-fit: cover;
   margin: 0 auto;
+  border-radius: 10px;
 }
 
 .services {
