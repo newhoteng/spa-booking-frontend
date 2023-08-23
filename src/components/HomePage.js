@@ -29,6 +29,7 @@ const HomePage = () => {
                 <Services
                   key={service.id}
                   to={service.name}
+                  id={service.id}
                   name={service.name}
                   image={service.image}
                   description={service.description}

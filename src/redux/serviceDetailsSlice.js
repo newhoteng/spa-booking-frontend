@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const getUrl = 'http://127.0.0.1:3001/api/v1/spa_services/:id';
+const getUrl = 'http://127.0.0.1:3001/api/v1/spa_services';
 
 const initialState = {
-  services: [],
+  serviceDetails: {}, // Make sure it's initialized as an object
   isLoading: true,
   isError: undefined,
 };

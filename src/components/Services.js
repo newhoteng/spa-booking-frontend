@@ -5,6 +5,7 @@ import facials from '../styles/facials.jpg';
 
 const Services = ({ name, id, description }) => (
   <div>
+    {/* { console.log(id) } */}
     <Link to={`/services/${id}`} className="services">
       <li className="services">
         <div className="image">
@@ -29,7 +30,7 @@ const Services = ({ name, id, description }) => (
 Services.propTypes = {
   name: PropTypes.string.isRequired,
   // image: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 export default Services;

@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchServiceDetails, selectServiceDetails } from '../redux/serviceDetailsSlice';
 
-const ServiceDetails = ({ match }) => {
+const ServiceDetails = () => {
   const dispatch = useDispatch();
   const serviceDetails = useSelector(selectServiceDetails);
-
   // Extract service ID from URL params
-  const serviceId = match.params.id;
-
+  const { id: serviceId } = useParams();
+    
   React.useEffect(() => {
     dispatch(fetchServiceDetails(serviceId));
   }, [dispatch, serviceId]);
@@ -23,7 +24,7 @@ const ServiceDetails = ({ match }) => {
 
   return (
     <div>
-      <h2>Service Details</h2>
+      <h1>Service Details</h1>
       <p>
         Service ID:
         {serviceId}
@@ -31,6 +32,14 @@ const ServiceDetails = ({ match }) => {
       {/* Display more service details from serviceDetails.serviceDetails */}
     </div>
   );
+};
+
+ServiceDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default ServiceDetails;
