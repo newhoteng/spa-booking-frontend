@@ -1,0 +1,64 @@
+.add-service-container {
+  margin-left: 250px;
+  background-color: #96bf03;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.add-service-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.header {
+  color: #fff;
+  font-size: 55px;
+  padding-bottom: 50px;
+}
+
+.placeholder {
+  appearance: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding: 0 30px 0 15px;
+
+  /* width: 100%; */
+  color: #000;
+
+  /* background-color: transparent; */
+  height: 55px;
+  width: 500px;
+}
+
+.placeholder_desc {
+  appearance: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding: 0 30px 0 15px;
+
+  /* width: 100%; */
+  color: #000;
+
+  /* background-color: transparent; */
+  height: 95px;
+  width: 500px;
+}
+
+.add_services {
+  width: 500px;
+  height: 55px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 20px;
+}

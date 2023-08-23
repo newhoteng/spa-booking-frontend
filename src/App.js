@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import PrivateRoutes from './components/PrivateRoutes';
 import ReserveForm from './components/ReserveForm';
 import './App.css';
+import AddService from './components/AddService';
 import UserReservations from './components/UserReservations';
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/reserve" element={<ReserveForm />} />
             <Route path="/myreservations" element={<UserReservations />} />
-            <Route path="/add_service" element={<h1 style={{ marginLeft: '250px' }}>Add treatment page goes here</h1>} />
+            <Route path="/add_service" element={<AddService />} />
             <Route path="/delete" element={<h1 style={{ marginLeft: '250px' }}>Delete page goes here</h1>} />
             <Route path="/*" element={<div style={{ marginLeft: '250px' }}>Page not found</div>} />
           </Route>
