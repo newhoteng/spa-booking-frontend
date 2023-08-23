@@ -4,7 +4,7 @@ import axios from 'axios';
 const getUrl = 'http://127.0.0.1:3001/api/v1/spa_services';
 
 const initialState = {
-  serviceDetails: {}, // Make sure it's initialized as an object
+  serviceDetails: [], // Make sure it's initialized as an object
   isLoading: true,
   isError: undefined,
 };

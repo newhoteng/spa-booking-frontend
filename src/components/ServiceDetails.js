@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchServiceDetails, selectServiceDetails } from '../redux/serviceDetailsSlice';
+import styles from '../styles/details.module.css';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
   const serviceDetails = useSelector(selectServiceDetails);
-  // Extract service ID from URL params
   const { id: serviceId } = useParams();
-    
+
   React.useEffect(() => {
     dispatch(fetchServiceDetails(serviceId));
   }, [dispatch, serviceId]);
@@ -22,14 +22,26 @@ const ServiceDetails = () => {
     return <div>Error loading service details</div>;
   }
 
+  // Find the selected service based on serviceId
+  const selectedService = serviceDetails.find((service) => service.id === Number(serviceId));
+
   return (
-    <div>
+    <div className={styles.hero}>
       <h1>Service Details</h1>
-      <p>
-        Service ID:
-        {serviceId}
-      </p>
-      {/* Display more service details from serviceDetails.serviceDetails */}
+      {selectedService && (
+        <div>
+          <h2>{selectedService.name}</h2>
+          <img src={selectedService.image} alt={selectedService.name} />
+          <p>
+            Description:
+            {selectedService.description}
+          </p>
+          <p>
+            Price: $
+            {selectedService.price}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
