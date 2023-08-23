@@ -14,7 +14,7 @@ html {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  width: 70%;
+  width: 75%;
   /* padding-top: 5em; */
   padding-left: 5em;
   text-align: center;
@@ -27,10 +27,13 @@ html {
   position: relative;
   border: 2px solid black;
   padding: 2em 3em;
+  width: 100%;
 }
 
 .mySwiper {
   position: static;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-btn-next,
@@ -39,6 +42,7 @@ html {
   position: absolute;
   align-items: center;
   background-color: #099c18;
+  justify-content: center;
   color: #fff;
   text-decoration: none;
   font-size: large;
@@ -55,8 +59,8 @@ html {
 .swiper-btn-prev {
   justify-content: end;
   left: 0;
-  padding-right: 5em;
-  margin-right: 6em;
+  /* padding-right: 5em;
+  margin-right: 6em; */
 }
 
 .swiper-btn-next {
@@ -69,18 +73,10 @@ html {
   color: white;
 }
 
-/* .swiperSlide {
-
-} */
-
-/* .swiper-slide {
-  display: flex;
-  flex-direction: col;
-  justify-content: space-between;
-} */
 .swiper-svg {
-  width: 2em;
+  width: 1em;
   height: 2em;
+  text-align: center;
 }
 
 .swiper-slide {
@@ -142,49 +138,20 @@ a:active {
   color: inherit;
 }
 
-/* .swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  Center slide text vertically
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper-slide {
-  width: 80%;
-}
-
-.swiper-slide:nth-child(2n) {
-  width: 60%;
-}
-
-.swiper-slide:nth-child(3n) {
-  width: 40%;
-} */
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
 /* .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 } */
+
+@media only screen and (max-width: 768px) {
+  .swiper-btn-next,
+  .swiper-btn-prev {
+    width: 30px;
+  }
+  .main-home {
+    width: 100%;
+    padding: 1em;
+  }
+}

@@ -2,12 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Navigation } from 'swiper/modules';
-// import SwiperCore from 'swiper';
 import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
 import { fetchAllServices } from '../redux/serviceSlice';
 // import facials from '../styles/facials.jpg';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -22,16 +19,12 @@ const HomePage = () => {
 
   const [slidesPerView, setSlidesPerView] = useState(3);
 
-  // eslint-disable-next-line no-unused-vars
   const handleResize = () => {
     if (window.innerWidth < 640) {
       setSlidesPerView(1);
     } else if (window.innerWidth >= 640 && window.innerWidth === 768) {
       setSlidesPerView(2);
     }
-    // else if (window.innerWidth >= 768) {
-    //   setSlidesPerView(3);
-    // }
   };
 
   useEffect(() => {
@@ -42,16 +35,12 @@ const HomePage = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   setTimeout(() => { dispatch(fetchAllServices()); }, 2000);
-  // }, [dispatch]);
-
   useEffect(() => {
     dispatch(fetchAllServices());
   }, [dispatch]);
 
   return (
-    <main className="main-home" id="home">
+    <main className="main-home">
       <h1>Spa Services</h1>
       {!isLoading && services.length === 0 && (
         <p className="home-font">
