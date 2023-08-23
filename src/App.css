@@ -15,6 +15,7 @@ html {
   justify-content: center;
   height: 100vh;
   width: 75%;
+
   /* padding-top: 5em; */
   padding-left: 5em;
   text-align: center;
@@ -53,12 +54,14 @@ html {
   border: 2px solid #000;
   border-radius: 12px;
   padding: 2em 0;
+
   /* margin: 0 1em; */
 }
 
 .swiper-btn-prev {
   justify-content: end;
   left: 0;
+
   /* padding-right: 5em;
   margin-right: 6em; */
 }
@@ -81,12 +84,14 @@ html {
 
 .swiper-slide {
   /* text-align: center; */
+
   /* font-size: 18px; */
   background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   /* margin-left: 2em;
   margin-right: 2em; */
 }
@@ -150,6 +155,7 @@ a:active {
   .swiper-btn-prev {
     width: 30px;
   }
+
   .main-home {
     width: 100%;
     padding: 1em;
