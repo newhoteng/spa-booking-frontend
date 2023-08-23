@@ -18,30 +18,32 @@ const initialState = {
   error: undefined,
 };
 
-export const getUserReservations = createAsyncThunk('reservations/getUserReservations', async (name, thunkAPI) => {
-  try {
-    const resp = await axios(`${getUrl}`);
-    const { data } = resp;
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('something went wrong');
-  }
-});
+export const getUserReservations = createAsyncThunk('reservations/getUserReservations',
+  async (name, thunkAPI) => {
+    try {
+      const resp = await axios(`${getUrl}`);
+      const { data } = resp;
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue('something went wrong');
+    }
+  });
 
 // const navigate = useNavigate();
-export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
-  try {
-    const resp = await axios.post(`${postUrl}`, newReservation);
-    // console.log(resp.status);
-    // console.log(resp.data);
-    // if (resp.status === 201) {
-    //   navigate('/myreservations');
-    // }
-    return resp.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('something went wrong');
-  }
-});
+export const postReservation = createAsyncThunk('reservations/postReservation',
+  async (newReservation, thunkAPI) => {
+    try {
+      const resp = await axios.post(`${postUrl}`, newReservation);
+      // console.log(resp.status);
+      // console.log(resp.data);
+      // if (resp.status === 201) {
+      //   navigate('/myreservations');
+      // }
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue('something went wrong');
+    }
+  });
 
 const reservationsSlice = createSlice({
   name: 'userReservations',
