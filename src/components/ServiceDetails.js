@@ -26,22 +26,24 @@ const ServiceDetails = () => {
   const selectedService = serviceDetails.find((service) => service.id === Number(serviceId));
 
   return (
-    <div className={styles.hero}>
-      <h1>Service Details</h1>
+    <div className={styles.contianer}>
       {selectedService && (
-        <div>
-          <h2>{selectedService.name}</h2>
+        <div className={styles.hero}>
           <img src={selectedService.image} alt={selectedService.name} />
-          <p>
-            Description:
-            {selectedService.description}
-          </p>
-          <p>
-            Price: $
-            {selectedService.price}
-          </p>
+          <div className={styles.detailsText}>
+            <h2>{selectedService.name}</h2>
+            <p>
+              Description:
+              {selectedService.description}
+            </p>
+            <p>
+              Price: $
+              {selectedService.price}
+            </p>
+          </div>
         </div>
       )}
+      <button type="submit">Book Now</button>
     </div>
   );
 };
