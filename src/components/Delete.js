@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllServices, removeService, toggleService } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
-// , toggleService
-
 function DeleteService() {
   const { services, isLoading, isError } = useSelector((store) => store.services);
 
@@ -18,25 +16,25 @@ function DeleteService() {
 
   if (isLoading) {
     return (
-      <ul className={`${styles.userReservations}`}>
+      <ul className={`${styles.reserveForm}`}>
         <h1>Loading...</h1>
       </ul>
     );
   }
   if (isError) {
     return (
-      <ul className={`${styles.userReservations}`}>
+      <ul className={`${styles.reserveForm}`}>
         <h1>Something went wrong</h1>
       </ul>
     );
   }
 
   return (
-    <div className={`${styles.userReservations}`}>
+    <div className={`${styles.reserveForm}`}>
       <table>
         <thead>
           <tr>
-            <th>Service</th>
+            {/* <th>Service</th> */}
             {/* <th>Button</th> */}
           </tr>
         </thead>

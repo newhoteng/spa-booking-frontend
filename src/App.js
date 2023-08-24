@@ -1,8 +1,6 @@
 import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -12,32 +10,8 @@ import ReserveForm from './components/ReserveForm';
 import './App.css';
 import UserReservations from './components/UserReservations';
 import DeleteService from './components/Delete';
-// import { getUserReservations } from './redux/reservations/reservationsSlice';
-
-// import { useEffect } from 'react';
 
 function App() {
-  // const API_URL = 'http://127.0.0.1:3001/api/v1/spa_services';
-  // const [services, setServices] = useState([]);
-  // // eslint-disable-next-line no-unused-vars
-  // const [fetchError, setFetchError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchItems = async () => {
-  //     try {
-  //       const response = await fetch(API_URL);
-  //       if (!response.ok) throw new Error('Did not receive expected response');
-  //       const listServices = await response.json();
-  //       setServices(listServices);
-  //       setFetchError(null);
-  //     } catch (err) {
-  //       setFetchError(err.message);
-  //     } finally {
-  //       // setIsLoading(false);
-  //     }
-  //   };
-  //   fetchItems();
-  // }, []);
   return (
     <BrowserRouter>
       <Routes>

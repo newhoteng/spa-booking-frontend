@@ -18,11 +18,11 @@ function ReserveForm() {
     }
   }, [dispatch, services]);
 
-  const isAuthenticated = localStorage.getItem('isAuthenticated');
-  let userId = null;
-  if (isAuthenticated) {
-    userId = JSON.parse(localStorage.getItem('user')).id;
-  }
+  // const isAuthenticated = localStorage.getItem('isAuthenticated');
+  // let userId = null;
+  // if (isAuthenticated) {
+  const userId = JSON.parse(localStorage.getItem('user')).id;
+  // }
   const [payload, setPayload] = useState({
     user_id: userId,
     spa_service_id: '',

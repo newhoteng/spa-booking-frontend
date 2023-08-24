@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import { ImTwitter, ImFacebook, ImVimeo } from 'react-icons/im';
 import { TfiGoogle } from 'react-icons/tfi';
 import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
 import styles from '../styles/NavBar.module.css';
+import MobileNav from './MobileNav';
 
 function NavBar() {
   const navLinkStyles = ({ isActive }) => ({
@@ -16,8 +18,28 @@ function NavBar() {
     window.location.pathname = '/login';
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // create an event listener
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  });
+
   return (
     <div>
+      {isMobile && (
+        <MobileNav />
+      )}
+      {!isMobile && (
       <header className={`${styles.flexColumn}`}>
         <button className="btn btn-outline-secondary" type="button" onClick={handleLogout}>Logout</button>
         <div><BiSpa className={`${styles.logo}`} /></div>
@@ -41,6 +63,7 @@ function NavBar() {
           <p>&#169; 2023 Harriet, Jedda, Hamza &amp; Roland </p>
         </div>
       </header>
+      )}
       <Outlet />
     </div>
   );

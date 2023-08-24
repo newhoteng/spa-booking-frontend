@@ -1,14 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const isAuthenticated = localStorage.getItem('isAuthenticated');
-
-// let userId = null;
-
-// const userId = JSON.parse(localStorage.getItem('user'))?.id;
-
 const postUrl = 'http://localhost:3001/api/v1/reservations';
-// const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
 
 const initialState = {
   userReservations: [],
@@ -19,10 +12,8 @@ const initialState = {
 export const getUserReservations = createAsyncThunk(
   'reservations/getUserReservations',
   async () => {
-    // console.log(userId);
     try {
       const resp = await axios.get(`http://localhost:3001/api/v1/users/${JSON.parse(localStorage.getItem('user')).id}/reservations`);
-      // const { data } = resp;
       return resp.data;
     } catch (error) {
       return (error.message);
