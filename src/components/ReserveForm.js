@@ -14,7 +14,6 @@ function ReserveForm() {
   const location = useLocation();
 
   const spaServiceId = location.state?.spa_service_id;
-  console.log(spaServiceId);
 
   useEffect(() => {
     if (!services.length) {
