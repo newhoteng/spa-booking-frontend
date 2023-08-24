@@ -1,0 +1,32 @@
+.contianer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+  margin-top: -15rem;
+}
+
+.detailsText {
+  display: flex;
+  flex-direction: column;
+  margin-top: -22rem;
+  margin-right: -10rem;
+}
+
+.contianer button {
+  width: 150px;
+  height: 50px;
+  background-color: #96bf03;
+  border: none;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 500;
+  margin-top: 33rem;
+}
