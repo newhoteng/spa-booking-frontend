@@ -1,13 +1,6 @@
-/* * {
-  margin: 0;
-  box-sizing: border-box;
-} */
-
 .mobile nav {
   width: 100%;
   height: 5em;
-
-  /* background-color: blanchedalmond; */
   padding: 1em;
   border-bottom: 2px solid #f1f1f1;
   display: flex;
@@ -20,8 +13,8 @@
 }
 
 .burger-menu {
-  width: 4em;
-  height: 100%;
+  width: 3em;
+  height: 2.5em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -30,22 +23,19 @@
 }
 
 .burgerBar {
-  width: 4em;
+  width: 100%;
   height: 0.5em;
   background-color: black;
   border-radius: 0.5em;
 }
 
 .menu {
-  width: 50%;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 5em);
   background-color: #fff;
   position: absolute;
   right: 0;
-
-  /* top: 0; */
-
-  /* z-index: -1; */
+  z-index: 2;
 }
 
 .hidden {
@@ -60,17 +50,16 @@
 
 /* clicked */
 .burgerBar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(0.75em, 1.25em);
+  transform: rotate(45deg) translate(0.7em, 0.7em);
   transition: ease-out 0.5s;
 }
 
 .burgerBar.clicked:nth-child(2) {
-  transform: scale(0.1);
-  transition: ease-out 0.5s;
+  opacity: 0;
 }
 
 .burgerBar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-0.5em, 1em);
+  transform: rotate(135deg) translate(-0.7em, 0.75em);
   transition: ease-out 0.5s;
 }
 
@@ -78,4 +67,26 @@
 .burgerBar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+
+.menu ul {
+  padding: 0;
+}
+
+.menu li {
+  text-align: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 1rem 0;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+
+.menu button {
+  margin: 0 auto;
+  display: block;
 }

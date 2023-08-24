@@ -4,7 +4,6 @@ import { Outlet, NavLink } from 'react-router-dom';
 // import { TfiGoogle } from 'react-icons/tfi';
 // import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
-// import styles from '../styles/MobileNav.module.css';
 import '../styles/MobileNav.css';
 
 const MobileNav = () => {
