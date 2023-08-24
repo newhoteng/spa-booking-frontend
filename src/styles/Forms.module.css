@@ -150,7 +150,7 @@ input[type="date"] {
   .reserveForm {
     margin-left: 0;
     background-color: #96bf03;
-    height: 100vh;
+    height: calc(100vh - 5em);
     display: flex;
     align-items: center;
     justify-content: center;

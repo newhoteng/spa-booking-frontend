@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
 import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
 import { fetchAllServices } from '../redux/serviceSlice';
@@ -11,6 +11,9 @@ function ReserveForm() {
 
   const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  const spaServiceId = location.state?.spa_service_id;
 
   useEffect(() => {
     if (!services.length) {
@@ -18,14 +21,11 @@ function ReserveForm() {
     }
   }, [dispatch, services]);
 
-  // const isAuthenticated = localStorage.getItem('isAuthenticated');
-  // let userId = null;
-  // if (isAuthenticated) {
   const userId = JSON.parse(localStorage.getItem('user')).id;
-  // }
+
   const [payload, setPayload] = useState({
     user_id: userId,
-    spa_service_id: '',
+    spa_service_id: spaServiceId,
     date: '',
     city: '',
   });

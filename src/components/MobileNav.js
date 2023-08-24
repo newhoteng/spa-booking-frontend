@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 // import { ImTwitter, ImFacebook, ImVimeo } from 'react-icons/im';
 // import { TfiGoogle } from 'react-icons/tfi';
 // import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
-// import styles from '../styles/MobileNav.module.css';
 import '../styles/MobileNav.css';
 
 const MobileNav = () => {
@@ -56,6 +55,7 @@ const MobileNav = () => {
           <button className="btn btn-outline-secondary" type="button" onClick={handleLogout}>Logout</button>
         </ul>
       </div>
+      <Outlet />
     </div>
   );
 };

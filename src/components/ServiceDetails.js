@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaRegCalendarCheck } from 'react-icons/fa6';
+import { IoIosArrowDropright } from 'react-icons/io';
 import { fetchServiceDetails, selectServiceDetails } from '../redux/serviceDetailsSlice';
 import styles from '../styles/details.module.css';
 
@@ -26,7 +28,7 @@ const ServiceDetails = () => {
   const selectedService = serviceDetails.find((service) => service.id === Number(serviceId));
 
   return (
-    <div className={styles.contianer}>
+    <div className={styles.container}>
       {selectedService && (
         <div className={styles.hero}>
           <img src={selectedService.image} alt={selectedService.name} />
@@ -43,7 +45,13 @@ const ServiceDetails = () => {
           </div>
         </div>
       )}
-      <button type="submit">Reserve</button>
+      <Link to="/reserve" state={{ spa_service_id: serviceId }}>
+        <div className={styles.reserveBtn}>
+          <FaRegCalendarCheck className={`${styles.logo}`} />
+          <button type="button">Reserve</button>
+          <IoIosArrowDropright className={`${styles.logo}`} />
+        </div>
+      </Link>
     </div>
   );
 };
