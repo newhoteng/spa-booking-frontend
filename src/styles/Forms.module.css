@@ -38,6 +38,7 @@ input[type="password"]:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 
 .selectContainer {
@@ -98,28 +99,61 @@ input[type="date"] {
   padding: 0 1rem;
 }
 
-.userReservations {
+/* .userReservations {
   margin-left: 250px;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+} */
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.userReservations table {
+.reserveForm table {
   border-collapse: collapse;
   margin: 2rem;
 }
 
-.userReservations td,
-.userReservations th {
-  border: 1px solid #dee2e6;
+.reserveForm td,
+.reserveForm th {
+  border: 1px solid #fff;
   text-align: left;
   padding: 8px;
+}
+
+.removed {
+  background-color: rgb(31, 165, 165);
+  border-radius: 4px;
+  border: 2px solid rgb(31, 165, 165);
+  color: white;
+  margin-right: 4px;
+}
+
+.add {
+  color: rgb(161, 155, 155);
+  height: 30px;
+  width: 140px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: 1px solid rgb(92, 93, 94);
 }
 
 @media all and (max-width: 768px) {
   .reserveForm form {
     flex-direction: column;
+  }
+
+  .reserveForm {
+    margin-left: 0;
+    background-color: #96bf03;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
   }
 }

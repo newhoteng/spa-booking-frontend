@@ -1,5 +1,7 @@
 html {
   font-size: 15px;
+
+  /* margin: 0; */
 }
 
 .flexColumn {
@@ -76,3 +78,9 @@ nav li:hover {
 .logo {
   font-size: 3rem;
 }
+
+/* @media all and (max-width: 768px) {
+  .reserveForm form {
+    flex-direction: column;
+  }
+} */

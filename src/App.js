@@ -9,6 +9,7 @@ import ReserveForm from './components/ReserveForm';
 import './App.css';
 import AddService from './components/AddService';
 import UserReservations from './components/UserReservations';
+import DeleteService from './components/Delete';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route path="/reserve" element={<ReserveForm />} />
             <Route path="/myreservations" element={<UserReservations />} />
             <Route path="/add_service" element={<AddService />} />
-            <Route path="/delete" element={<h1 style={{ marginLeft: '250px' }}>Delete page goes here</h1>} />
+            <Route path="/delete" element={<DeleteService />} />
             <Route path="/*" element={<div style={{ marginLeft: '250px' }}>Page not found</div>} />
           </Route>
         </Route>

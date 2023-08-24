@@ -1,16 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const isAuthenticated = localStorage.getItem('isAuthenticated');
-
-let userId = null;
-
-if (isAuthenticated) {
-  userId = JSON.parse(localStorage.getItem('user')).id;
-}
-
 const postUrl = 'http://localhost:3001/api/v1/reservations';
-const getUrl = `http://localhost:3001/api/v1/users/${userId}/reservations`;
 
 const initialState = {
   userReservations: [],
@@ -18,32 +9,26 @@ const initialState = {
   error: undefined,
 };
 
-export const getUserReservations = createAsyncThunk('reservations/getUserReservations',
-  async (name, thunkAPI) => {
+export const getUserReservations = createAsyncThunk(
+  'reservations/getUserReservations',
+  async () => {
     try {
-      const resp = await axios(`${getUrl}`);
-      const { data } = resp;
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong');
-    }
-  });
-
-// const navigate = useNavigate();
-export const postReservation = createAsyncThunk('reservations/postReservation',
-  async (newReservation, thunkAPI) => {
-    try {
-      const resp = await axios.post(`${postUrl}`, newReservation);
-      // console.log(resp.status);
-      // console.log(resp.data);
-      // if (resp.status === 201) {
-      //   navigate('/myreservations');
-      // }
+      const resp = await axios.get(`http://localhost:3001/api/v1/users/${JSON.parse(localStorage.getItem('user')).id}/reservations`);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong');
+      return (error.message);
     }
-  });
+  },
+);
+
+export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
+  try {
+    const resp = await axios.post(`${postUrl}`, newReservation);
+    return resp.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong');
+  }
+});
 
 const reservationsSlice = createSlice({
   name: 'userReservations',
@@ -60,11 +45,12 @@ const reservationsSlice = createSlice({
     });
     builder.addCase(getUserReservations.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.error = false;
       state.userReservations = action.payload;
     });
     builder.addCase(getUserReservations.rejected, (state, action) => {
-      state.error = action.payload;
       state.isLoading = false;
+      state.error = action.payload;
     });
     // postReservation
     builder.addCase(postReservation.pending, (state) => {
