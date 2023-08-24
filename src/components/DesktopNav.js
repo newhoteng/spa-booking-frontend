@@ -5,7 +5,7 @@ import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
 import styles from '../styles/NavBar.module.css';
 
-function NavBar() {
+function DesktopNav() {
   const navLinkStyles = ({ isActive }) => ({
     backgroundColor: isActive ? '#98bf0d' : '#fff',
     color: isActive ? '#fff' : 'inherit',
@@ -46,4 +46,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default DesktopNav;
