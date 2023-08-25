@@ -32,10 +32,10 @@ function UserReservations() {
   return (
     <div className={`${styles.reserveForm} ${styles.flexColumn}`}>
       {!isLoading && userReservations.length === 0 && (
-        <p><i>You have no reservations.</i></p>
+        <p className={`${styles.headline}`}><i>You have no reservations.</i></p>
       )}
       {userReservations.length !== 0 && (
-        <p>
+        <p className={`${styles.headline}`}>
           <i>
             You have
             {' '}

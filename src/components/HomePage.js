@@ -2,9 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { CiFacebook, CiTwitter, CiInstagram } from 'react-icons/ci';
+import { ImTwitter, ImFacebook } from 'react-icons/im';
+import { TiSocialInstagram } from 'react-icons/ti';
 import { fetchAllServices } from '../redux/serviceSlice';
-// import facials from '../styles/facials.jpg';
+import DottedHr from './DottedHr';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -39,9 +40,13 @@ const HomePage = () => {
     dispatch(fetchAllServices());
   }, [dispatch]);
 
+  const filtered = services.filter((service) => service.is_removed === false);
+
   return (
     <main className="main-home">
-      <h1>Spa Services</h1>
+      <h1>SPA SERVICES</h1>
+      <p className="p-font">Please select a service or two!</p>
+      <DottedHr />
       {!isLoading && services.length === 0 && (
         <p className="home-font">
           No available service. Please add a service to view.
@@ -53,31 +58,30 @@ const HomePage = () => {
         <h1>Loading...</h1>
       ) : (
         <div className="service-main">
-          <p className="p-font">Please select a service or two!</p>
+          {/* <p className="p-font">Please select a service or two!</p> */}
           <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
             className="mySwiper"
           >
-            {services.map((service) => (
+            {filtered.map((service) => (
               <SwiperSlide key={service.id} className="swiperSlide">
                 <Link to={`/services/${service.id}`} className="services">
                   <div className="image">
                     <img src={service.image} alt="service" className="image" />
                   </div>
-                  <h2 className="header-font">
-                    {service.name.charAt(0).toUpperCase()
-                      + service.name.slice(1)}
+                  <h2 className="title-font">
+                    {service.name.toUpperCase()}
                   </h2>
                 </Link>
-                <p className="p-font">
-                  {service.description.substring(0, 20)}
-                  ...
+                <DottedHr />
+                <p className="desc-font">
+                  {service.description}
                 </p>
                 <div className="icons">
-                  <CiFacebook />
-                  <CiTwitter />
-                  <CiInstagram />
+                  <div className="social-circle"><ImFacebook /></div>
+                  <div className="social-circle"><ImTwitter /></div>
+                  <div className="social-circle"><TiSocialInstagram /></div>
                 </div>
               </SwiperSlide>
             ))}
