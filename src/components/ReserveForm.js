@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
+import { BsCalendar } from 'react-icons/bs';
 import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
 import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
@@ -59,7 +60,18 @@ function ReserveForm() {
   };
 
   return (
-    <div className={`${styles.reserveForm}`}>
+    <div className={`${styles.reserveForm} ${styles.flexColumn} ${styles.reserveFormOnly}`}>
+      <h1 className={`${styles.heading}`}>BOOK A SPA SERVICE</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Proin non elementum nunc.
+        In dapibus.
+        <br />
+        Maecenas ligula erat, gravida eget odio at, mattis mattis nisl.
+        Mauris,
+        <br />
+        tempor quis quam eget, posuere.
+      </p>
       <form onSubmit={handleSubmit}>
         <div className={`${styles.selectContainer}`}>
           <select
@@ -81,14 +93,17 @@ function ReserveForm() {
           </select>
           <BiDownArrow className={`${styles.arrowIcon}`} />
         </div>
-        <input
-          name="date"
-          type="date"
-          required
-          min={minDate()}
-          value={payload.date}
-          onChange={handleChange}
-        />
+        <div className={`${styles.selectContainer}`}>
+          <input
+            name="date"
+            type="date"
+            required
+            min={minDate()}
+            value={payload.date}
+            onChange={handleChange}
+          />
+          <BsCalendar className={`${styles.arrowIcon}`} />
+        </div>
         <div className={`${styles.selectContainer}`}>
           <select
             value={payload.city}
