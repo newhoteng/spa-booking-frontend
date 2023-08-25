@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaRegCalendarCheck } from 'react-icons/fa6';
 import { IoIosArrowDropright } from 'react-icons/io';
+import { BiLeftArrow } from 'react-icons/bi';
 import { fetchServiceDetails, selectServiceDetails } from '../redux/serviceDetailsSlice';
 import styles from '../styles/details.module.css';
 
 const ServiceDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const serviceDetails = useSelector(selectServiceDetails);
   const { id: serviceId } = useParams();
 
@@ -27,31 +29,43 @@ const ServiceDetails = () => {
   // Find the selected service based on serviceId
   const selectedService = serviceDetails.find((service) => service.id === Number(serviceId));
 
+  // <FaArrowLeftLong className={`${styles.backArrow}`} onClick={() => navigate(-1)} />
   return (
     <div className={styles.container}>
       {selectedService && (
-        <div className={styles.hero}>
-          <img src={selectedService.image} alt={selectedService.name} />
-          <div className={styles.detailsText}>
-            <h2>{selectedService.name}</h2>
-            <p>
-              Description:
-              {selectedService.description}
-            </p>
-            <p>
-              Price: $
-              {selectedService.price}
-            </p>
+        <div className={styles.innerCont}>
+          <div className={styles.backArrow} onClick={() => navigate('/')} role="presentation">
+            <BiLeftArrow />
+          </div>
+          <div className={styles.imgDiv}>
+            <img className={styles.image} src={selectedService.image} alt={selectedService.name} />
+          </div>
+          <div className={styles.detailsContainer}>
+            <div className={styles.text}>
+              <h2>{selectedService.name.toUpperCase()}</h2>
+              <p className={styles.discount}>- 25% off your first booking</p>
+              <p className={styles.rows}>
+                <span>Price</span>
+                <span>
+                  $
+                  {selectedService.price}
+                </span>
+              </p>
+              <p className={styles.rows}>
+                <span>Duration</span>
+                30 min
+              </p>
+            </div>
+            <Link to="/reserve" state={{ spa_service_id: serviceId }}>
+              <div className={styles.reserveBtn}>
+                <FaRegCalendarCheck className={`${styles.logo}`} />
+                <button type="button">Reserve</button>
+                <IoIosArrowDropright className={`${styles.logo}`} />
+              </div>
+            </Link>
           </div>
         </div>
       )}
-      <Link to="/reserve" state={{ spa_service_id: serviceId }}>
-        <div className={styles.reserveBtn}>
-          <FaRegCalendarCheck className={`${styles.logo}`} />
-          <button type="button">Reserve</button>
-          <IoIosArrowDropright className={`${styles.logo}`} />
-        </div>
-      </Link>
     </div>
   );
 };

@@ -51,7 +51,7 @@ const AddService = () => {
         </div>
       ) : (
         <>
-          <h2 className={styles.header}>Add Service</h2>
+          <h2 className={styles.header}>ADD SERVICE</h2>
           <form onSubmit={handleSubmit} className={styles['add-service-form']}>
             <div className={styles['add-service-form-group']}>
               <input
@@ -75,9 +75,10 @@ const AddService = () => {
               />
             </div>
             <div className={styles['add-service-form-group']}>
-              <textarea
+              <input
+                type="textarea"
                 id="description"
-                className={styles.placeholder_desc}
+                className={`${styles.placeholder_desc} ${styles.placeholder}`}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Enter Service Description"

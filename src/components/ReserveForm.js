@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
 import { BsCalendar } from 'react-icons/bs';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
 import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
@@ -61,6 +62,7 @@ function ReserveForm() {
 
   return (
     <div className={`${styles.reserveForm} ${styles.flexColumn} ${styles.reserveFormOnly}`}>
+      <FaArrowLeftLong className={`${styles.backArrow}`} onClick={() => navigate(-1)} />
       <h1 className={`${styles.heading}`}>BOOK A SPA SERVICE</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -102,7 +104,7 @@ function ReserveForm() {
             value={payload.date}
             onChange={handleChange}
           />
-          <BsCalendar className={`${styles.arrowIcon}`} />
+          <BsCalendar className={`${styles.arrowIcon} ${styles.calendarIcon}`} />
         </div>
         <div className={`${styles.selectContainer}`}>
           <select

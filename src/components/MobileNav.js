@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-// import { ImTwitter, ImFacebook, ImVimeo } from 'react-icons/im';
-// import { TfiGoogle } from 'react-icons/tfi';
-// import { FaPinterestP } from 'react-icons/fa';
 import { BiSpa } from 'react-icons/bi';
 import '../styles/MobileNav.css';
 
