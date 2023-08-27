@@ -21,14 +21,23 @@ export const getUserReservations = createAsyncThunk(
   },
 );
 
-export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
-  try {
-    const resp = await axios.post(`${postUrl}`, newReservation);
-    return resp.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('something went wrong');
-  }
-});
+// Add a new service
+export const postReservation = createAsyncThunk(
+  'reservations/postReservation',
+  async (reservationData) => {
+    const response = await axios.post(postUrl, reservationData);
+    return response.data;
+  },
+);
+
+// export const postReservation = createAsyncThunk('rese/p', async (newReservation) => {
+//   try {
+//     const resp = await axios.post(postUrl, newReservation);
+//     return resp.data;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue('something went wrong');
+//   }
+// });
 
 const reservationsSlice = createSlice({
   name: 'userReservations',

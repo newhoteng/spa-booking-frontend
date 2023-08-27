@@ -11,7 +11,7 @@ const AddService = () => {
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState('');
   const [price, setPrice] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

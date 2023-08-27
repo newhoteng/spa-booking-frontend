@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ImTwitter, ImFacebook } from 'react-icons/im';
 import { TiSocialInstagram } from 'react-icons/ti';
+// import { Navigation } from 'swiper/modules';
 import { fetchAllServices } from '../redux/serviceSlice';
 import DottedHr from './DottedHr';
 import 'swiper/css';
@@ -72,6 +73,8 @@ const HomePage = () => {
             slidesPerView={slidesPerView}
             spaceBetween={30}
             className="mySwiper"
+            // navigation
+            // modules={[Navigation]}
           >
             {filtered.map((service) => (
               <SwiperSlide key={service.id} className="swiperSlide">

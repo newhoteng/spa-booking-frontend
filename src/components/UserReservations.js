@@ -55,13 +55,13 @@ function UserReservations() {
             </tr>
           </thead>
           <tbody>
-            {userReservations?.map((reservation) => (
-              <tr key={reservation.id}>
+            {userReservations?.map((rs) => (
+              <tr key={rs.id}>
                 <td>
-                  {services.find((service) => service.id === reservation.spa_service_id)?.name}
+                  {services.find((service) => service.id === rs.spa_service_id)?.name.toUpperCase()}
                 </td>
-                <td>{reservation.date}</td>
-                <td>{reservation.city}</td>
+                <td>{rs.date}</td>
+                <td>{rs.city}</td>
               </tr>
             ))}
           </tbody>

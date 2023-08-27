@@ -43,7 +43,7 @@ function Login() {
 
   return (
     <div className={`${styles.formContainer}`}>
-      <p>{errorMessage}</p>
+      <p className={styles['err-msg']}>{errorMessage}</p>
       <form className="col-sm-6" onSubmit={proceedLogin}>
         <input
           name="username"
