@@ -1,19 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ImTwitter, ImFacebook } from 'react-icons/im';
 import { TiSocialInstagram } from 'react-icons/ti';
-// import { Navigation } from 'swiper/modules';
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
+import { Navigation } from 'swiper/modules';
 import { fetchAllServices } from '../redux/serviceSlice';
 import DottedHr from './DottedHr';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
-import SliderNextButton from './sliders/SliderNextButton';
-import SliderPrevButton from './sliders/SliderPrevButton';
 
 const HomePage = () => {
   const { services, isLoading, isError } = useSelector((store) => store.services);
@@ -28,9 +23,9 @@ const HomePage = () => {
       setSlidesPerView(2);
     } else if (window.innerWidth >= 768 && window.innerWidth < 950) {
       setSlidesPerView(1);
-    } else if (window.innerWidth >= 950 && window.innerWidth < 1150) {
+    } else if (window.innerWidth >= 950 && window.innerWidth < 1250) {
       setSlidesPerView(2);
-    } else if (window.innerWidth >= 1150) {
+    } else if (window.innerWidth >= 1250) {
       setSlidesPerView(3);
     }
   };
@@ -53,6 +48,9 @@ const HomePage = () => {
 
   const filtered = services.filter((service) => service.is_removed === false);
 
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   return (
     <main className="main-home">
       <h1>SPA SERVICES</h1>
@@ -71,10 +69,16 @@ const HomePage = () => {
         <div className="service-main">
           <Swiper
             slidesPerView={slidesPerView}
-            spaceBetween={30}
+            spaceBetween={60}
             className="mySwiper"
-            // navigation
-            // modules={[Navigation]}
+            modules={[Navigation]}
+            /* eslint no-param-reassign: "error" */
+            onInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
           >
             {filtered.map((service) => (
               <SwiperSlide key={service.id} className="swiperSlide">
@@ -97,8 +101,20 @@ const HomePage = () => {
                 </div>
               </SwiperSlide>
             ))}
-            <SliderPrevButton />
-            <SliderNextButton />
+            <button
+              type="button"
+              ref={prevRef}
+              className="swiper-btn-prev"
+            >
+              <BiLeftArrow />
+            </button>
+            <button
+              type="button"
+              ref={nextRef}
+              className="swiper-btn-next"
+            >
+              <BiRightArrow />
+            </button>
           </Swiper>
         </div>
       )}
