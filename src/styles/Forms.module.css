@@ -12,6 +12,11 @@
 
 form {
   min-width: 275px;
+  text-align: center;
+}
+
+.formContainer input {
+  height: 50px;
 }
 
 input[type="text"],
@@ -26,6 +31,21 @@ input[type="textarea"]:focus,
 input[type="number"]:focus {
   background: transparent;
   outline: none;
+  border-radius: 25px;
+  border: 1px solid #fff;
+}
+
+.formContainer input::placeholder {
+  color: #fff;
+}
+
+.formContainer button {
+  background-color: #96bf03;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
 }
 
 .mytextwithicon {
@@ -185,16 +205,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   border-radius: 4px;
   border: 2px solid rgb(31, 165, 165);
   color: white;
-  margin-right: 4px;
-}
-
-.add {
-  color: rgb(161, 155, 155);
-  height: 30px;
-  width: 140px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 4px;
-  border: 1px solid rgb(92, 93, 94);
+  width: fit-content;
 }
 
 @media all and (max-width: 768px) {
@@ -205,11 +216,15 @@ input[type='date']::-webkit-calendar-picker-indicator {
   .reserveForm {
     margin-left: 0;
     background-color: #96bf03;
-    height: calc(100vh - 5em);
+    min-height: calc(100vh - 5em);
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
+    /* border: 3px solid red; */
+    margin-top: 5em;
+    padding: 1.5rem 0;
   }
 
   .reserveFormOnly {

@@ -19,12 +19,6 @@ const DottedHr = () => (
     <div className="dot" />
     <div className="dot" />
     <div className="dot" />
-    <div className="dot" />
-    <div className="dot" />
-    <div className="dot" />
-    <div className="dot" />
-    <div className="dot" />
-    <div className="dot" />
   </div>
 );
 

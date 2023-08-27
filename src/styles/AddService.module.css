@@ -59,9 +59,29 @@ input::placeholder {
   font-weight: 500;
 }
 
+.success-message p {
+  text-align: center;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.success-actions button {
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
 @media all and (max-width: 768px) {
   .add-service-container {
     margin-left: 0;
     height: calc(100vh - 5em);
+    margin-top: 5em;
   }
 }

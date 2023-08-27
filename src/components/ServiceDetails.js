@@ -53,7 +53,9 @@ const ServiceDetails = () => {
               </p>
               <p className={styles.rows}>
                 <span>Duration</span>
-                30 min
+                {selectedService.duration}
+                {' '}
+                min
               </p>
             </div>
             <Link to="/reserve" state={{ spa_service_id: serviceId }}>

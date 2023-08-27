@@ -9,8 +9,9 @@ const AddService = () => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
+  const [duration, setDuration] = useState('');
   const [price, setPrice] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const AddService = () => {
         name,
         image,
         description,
+        duration,
         price,
       }),
     );
@@ -28,6 +30,7 @@ const AddService = () => {
     setName('');
     setImage('');
     setDescription('');
+    setDuration('');
     setPrice('');
   };
 
@@ -38,9 +41,9 @@ const AddService = () => {
   return (
     <div className={styles['add-service-container']}>
       {isSubmitted ? (
-        <div className="success-message">
+        <div className={styles['success-message']}>
           <p>Your service has been added successfully!</p>
-          <div className="success-actions">
+          <div className={styles['success-actions']}>
             <button type="button" onClick={handleContinueAdding}>
               Continue Adding
             </button>
@@ -82,6 +85,17 @@ const AddService = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Enter Service Description"
+                required
+              />
+            </div>
+            <div className={styles['add-service-form-group']}>
+              <input
+                type="number"
+                className={styles.placeholder}
+                id="duration"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                placeholder="Enter Service Duration in Minutes"
                 required
               />
             </div>

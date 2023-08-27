@@ -18,8 +18,6 @@
   margin-left: 250px;
   padding-right: 0;
   margin-right: 0;
-
-  /* border: 1px solid red; */
 }
 
 .main-home h1 {
@@ -50,7 +48,6 @@
   position: absolute;
   align-items: center;
   background-color: #96bf03;
-  right: 0;
   color: #fff;
   width: 75px;
   height: 58px;
@@ -64,6 +61,7 @@
 
 .swiper-btn-next {
   justify-content: flex-start;
+  right: 0;
 }
 
 .swiper-btn-prev {
@@ -155,13 +153,6 @@ a:active {
   color: inherit;
 }
 
-/* .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
 .social-circle {
   border: 2px solid #d2d1d1;
   width: 30px;
@@ -186,6 +177,11 @@ a:active {
   border-radius: 1.5px;
 }
 
+.mobile-footer {
+  display: none;
+  position: absolute;
+}
+
 @media only screen and (max-width: 767px) {
   .swiper-btn-next,
   .swiper-btn-prev {
@@ -197,5 +193,14 @@ a:active {
     padding: 1em;
     margin-left: 0;
     height: calc(100vh - 5em);
+    margin-top: 5em;
+  }
+
+  .swiper-btn-next {
+    right: -1rem;
+  }
+
+  .swiper-btn-prev {
+    left: -1rem;
   }
 }

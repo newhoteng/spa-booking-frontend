@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { BiDownArrow } from 'react-icons/bi';
 import { BsCalendar } from 'react-icons/bs';
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import { postReservation, addReservation } from '../redux/reservations/reservationsSlice';
+import { postReservation } from '../redux/reservations/reservationsSlice';
 import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
@@ -44,7 +44,6 @@ function ReserveForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newReservation = payload;
-    dispatch(addReservation(newReservation));
     dispatch(postReservation(newReservation));
     setPayload({
       ...payload,
@@ -89,7 +88,7 @@ function ReserveForm() {
                 key={service.id}
                 value={service.id}
               >
-                {service.name}
+                {service.name.toUpperCase()}
               </option>
             ))}
           </select>

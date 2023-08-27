@@ -34,9 +34,7 @@ const reservationsSlice = createSlice({
   name: 'userReservations',
   initialState,
   reducers: {
-    addReservation: (state, action) => {
-      state.userReservations.push(action.payload);
-    },
+
   },
   extraReducers: (builder) => {
     // getUserReservations
@@ -56,8 +54,9 @@ const reservationsSlice = createSlice({
     builder.addCase(postReservation.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(postReservation.fulfilled, (state) => {
+    builder.addCase(postReservation.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.userReservations.push(action.payload);
     });
     builder.addCase(postReservation.rejected, (state, action) => {
       state.error = action.payload;

@@ -21,16 +21,26 @@ const HomePage = () => {
   const [slidesPerView, setSlidesPerView] = useState(3);
 
   const handleResize = () => {
-    if (window.innerWidth < 640) {
+    if (window.innerWidth <= 660) {
       setSlidesPerView(1);
-    } else if (window.innerWidth >= 640 && window.innerWidth === 768) {
+    } else if (window.innerWidth > 660 && window.innerWidth < 768) {
       setSlidesPerView(2);
+    } else if (window.innerWidth >= 768 && window.innerWidth < 950) {
+      setSlidesPerView(1);
+    } else if (window.innerWidth >= 950 && window.innerWidth < 1150) {
+      setSlidesPerView(2);
+    } else if (window.innerWidth >= 1150) {
+      setSlidesPerView(3);
     }
   };
 
   useEffect(() => {
+    // Initially set the amount of slides on page load
     handleResize();
+    // Add the event listner on component mount
     window.addEventListener('resize', handleResize);
+
+    // Remove the listner when component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -47,7 +57,7 @@ const HomePage = () => {
       <h1>SPA SERVICES</h1>
       <p className="p-font">Please select a service or two!</p>
       <DottedHr />
-      {!isLoading && services.length === 0 && (
+      {!isLoading && filtered.length === 0 && (
         <p className="home-font">
           No available service. Please add a service to view.
         </p>
@@ -58,7 +68,6 @@ const HomePage = () => {
         <h1>Loading...</h1>
       ) : (
         <div className="service-main">
-          {/* <p className="p-font">Please select a service or two!</p> */}
           <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
