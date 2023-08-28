@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #fff;
 }
 
 .add-service-form {
@@ -13,52 +14,74 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 1rem;
+}
+
+.add-service-form-group {
+  width: 100%;
 }
 
 .header {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  margin: 0 0 2rem 0;
+}
+
+input::placeholder {
   color: #fff;
-  font-size: 55px;
-  padding-bottom: 50px;
 }
 
 .placeholder {
-  appearance: none;
   border: none;
   border: 1px solid #fff;
   border-radius: 25px;
   padding: 0 30px 0 15px;
-
-  /* width: 100%; */
-  color: #000;
-
-  /* background-color: transparent; */
-  height: 55px;
-  width: 500px;
+  color: #fff;
+  height: 50px;
+  width: 100%;
 }
 
 .placeholder_desc {
-  appearance: none;
-  border: none;
-  border: 1px solid #fff;
-  border-radius: 25px;
-  padding: 0 30px 0 15px;
-
-  /* width: 100%; */
-  color: #000;
-
-  /* background-color: transparent; */
-  height: 95px;
-  width: 500px;
+  height: 100px;
 }
 
 .add_services {
-  width: 500px;
-  height: 55px;
+  width: 150px;
+  height: 50px;
   background-color: #fff;
   border: none;
   color: #96bf03;
   border-radius: 25px;
   font-weight: 500;
-  font-size: 20px;
+}
+
+.success-message p {
+  text-align: center;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.success-actions button {
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+@media all and (max-width: 768px) {
+  .add-service-container {
+    margin-left: 0;
+    height: calc(100vh - 5em);
+    margin-top: 5em;
+  }
 }

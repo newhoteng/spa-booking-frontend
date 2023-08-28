@@ -26,6 +26,7 @@ export const addService = createAsyncThunk(
   },
 );
 
+// Remove a service
 export const removeService = createAsyncThunk('services/RemoveService', async (id, thunkAPI) => {
   try {
     await axios.delete(`http://localhost:3001/api/v1/spa_services/${id}`);

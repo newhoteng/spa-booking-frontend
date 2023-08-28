@@ -21,22 +21,29 @@ export const getUserReservations = createAsyncThunk(
   },
 );
 
-export const postReservation = createAsyncThunk('reservations/postReservation', async (newReservation, thunkAPI) => {
-  try {
-    const resp = await axios.post(`${postUrl}`, newReservation);
-    return resp.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue('something went wrong');
-  }
-});
+// Add a new service
+export const postReservation = createAsyncThunk(
+  'reservations/postReservation',
+  async (reservationData) => {
+    const response = await axios.post(postUrl, reservationData);
+    return response.data;
+  },
+);
+
+// export const postReservation = createAsyncThunk('rese/p', async (newReservation) => {
+//   try {
+//     const resp = await axios.post(postUrl, newReservation);
+//     return resp.data;
+//   } catch (error) {
+//     return thunkAPI.rejectWithValue('something went wrong');
+//   }
+// });
 
 const reservationsSlice = createSlice({
   name: 'userReservations',
   initialState,
   reducers: {
-    addReservation: (state, action) => {
-      state.userReservations.push(action.payload);
-    },
+
   },
   extraReducers: (builder) => {
     // getUserReservations
@@ -56,8 +63,9 @@ const reservationsSlice = createSlice({
     builder.addCase(postReservation.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(postReservation.fulfilled, (state) => {
+    builder.addCase(postReservation.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.userReservations.push(action.payload);
     });
     builder.addCase(postReservation.rejected, (state, action) => {
       state.error = action.payload;

@@ -32,24 +32,18 @@ function DeleteService() {
   return (
     <div className={`${styles.reserveForm}`}>
       <table>
-        <thead>
-          <tr>
-            {/* <th>Service</th> */}
-            {/* <th>Button</th> */}
-          </tr>
-        </thead>
         <tbody>
           {services?.map((service) => (
             <tr key={service.id}>
               <td>
-                {service.is_removed && <span className={`${styles.removed}`}>Removed</span>}
+                {service.is_removed && <div className={`${styles.removed}`}>Removed</div>}
                 {' '}
-                {service.name}
+                {service.name.toUpperCase()}
               </td>
               <td>
                 <button
                   type="button"
-                  className={service.is_removed ? styles.add : 'btn btn-danger'}
+                  className={service.is_removed ? 'btn btn-success' : 'btn btn-danger'}
                   onClick={
                     () => {
                       dispatch(removeService(service.id));
