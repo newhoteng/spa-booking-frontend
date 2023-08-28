@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ImTwitter, ImFacebook } from 'react-icons/im';
@@ -9,38 +9,13 @@ import { Navigation } from 'swiper/modules';
 import { fetchAllServices } from '../redux/serviceSlice';
 import DottedHr from './DottedHr';
 import 'swiper/css';
+import useWindowSize from './useWindowsize'; // Import the custom hook
 
 const HomePage = () => {
   const { services, isLoading, isError } = useSelector((store) => store.services);
   const dispatch = useDispatch();
 
-  const [slidesPerView, setSlidesPerView] = useState(3);
-
-  const handleResize = () => {
-    if (window.innerWidth <= 660) {
-      setSlidesPerView(1);
-    } else if (window.innerWidth > 660 && window.innerWidth < 768) {
-      setSlidesPerView(2);
-    } else if (window.innerWidth >= 768 && window.innerWidth < 950) {
-      setSlidesPerView(1);
-    } else if (window.innerWidth >= 950 && window.innerWidth < 1250) {
-      setSlidesPerView(2);
-    } else if (window.innerWidth >= 1250) {
-      setSlidesPerView(3);
-    }
-  };
-
-  useEffect(() => {
-    // Initially set the amount of slides on page load
-    handleResize();
-    // Add the event listner on component mount
-    window.addEventListener('resize', handleResize);
-
-    // Remove the listner when component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const slidesPerView = useWindowSize(); // Use the custom hook for slidesPerView
 
   useEffect(() => {
     dispatch(fetchAllServices());
@@ -61,7 +36,7 @@ const HomePage = () => {
           No available service. Please add a service to view.
         </p>
       )}
-      {isError && <h1>Something went wrong please reload the page...</h1>}
+      {isError && <h1>Something went wrong, please reload the page...</h1>}
 
       {isLoading ? (
         <h1>Loading...</h1>
