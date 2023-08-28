@@ -66,8 +66,6 @@ const AddService = () => {
                 placeholder="Enter Service Name"
                 required
               />
-            </div>
-            <div className={styles['add-service-form-group']}>
               <input
                 type="text"
                 className={styles.placeholder}
@@ -76,8 +74,6 @@ const AddService = () => {
                 onChange={(e) => setImage(e.target.value)}
                 placeholder="Add Image URL"
               />
-            </div>
-            <div className={styles['add-service-form-group']}>
               <input
                 type="textarea"
                 id="description"
@@ -87,8 +83,6 @@ const AddService = () => {
                 placeholder="Enter Service Description"
                 required
               />
-            </div>
-            <div className={styles['add-service-form-group']}>
               <input
                 type="number"
                 className={styles.placeholder}
@@ -98,8 +92,6 @@ const AddService = () => {
                 placeholder="Enter Service Duration in Minutes"
                 required
               />
-            </div>
-            <div className={styles['add-service-form-group']}>
               <input
                 type="number"
                 className={styles.placeholder}
