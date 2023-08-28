@@ -59,10 +59,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Set up controller**
-- **Authentication with devise**
-<!-- - **Authorization with cancan** -->
-- **View the all services available**
+- **Set up UI**
+- **Login and Sipup page with interactive buttons**
+- **View the all services available through a slider**
 - **Users can add services**
 - **Users can make reservation of services**
 - **Users can view all reservations they have made**
@@ -93,7 +92,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 - Visual Studio Code.
-- Ruby
+- React & Redux
 - Git bash.
 - GitHub Account.
 
@@ -122,7 +121,7 @@ To run the project, execute the following in a terminal.
 
 ```sh
 cd my-project
-bundle install
+npm install
 
 ```
 
@@ -131,28 +130,16 @@ bundle install
 - create database and run migrations
 
 ```sh
-bin/rails db:setup
+npx create-react-app spa-booking-frontend
 
 ```
 
 - start server
 
 ```sh
-bin/rails server
-
-  OR
-
-rails s
+npm start
 ```
 
-<!-- ### Run test
-
-To run test, run the following command in the terminal
-
-```sh
-rspec
-
-``` -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
