@@ -10,7 +10,8 @@ test('AddService component matches snapshot when not submitted', () => {
   const store = createStore(rootReducer);
 
   const { container } = render(
-    <Provider store={store}>{/* Wrap component with Provider */}
+    <Provider store={store}>
+      {/* Wrap component with Provider */}
       <AddService />
     </Provider>,
   );
