@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddService component matches snapshot when not submitted 1`] = `
+<div>
+   
+  <div
+    class="add-service-container"
+  >
+    <h2
+      class="header"
+    >
+      ADD SERVICE
+    </h2>
+    <form
+      class="add-service-form"
+    >
+      <div
+        class="add-service-form-group"
+      >
+        <input
+          class="placeholder"
+          id="name"
+          placeholder="Enter Service Name"
+          required=""
+          type="text"
+          value=""
+        />
+        <input
+          class="placeholder"
+          id="image"
+          placeholder="Add Image URL"
+          type="text"
+          value=""
+        />
+        <input
+          class="placeholder_desc placeholder"
+          id="description"
+          placeholder="Enter Service Description"
+          required=""
+          type="textarea"
+          value=""
+        />
+        <input
+          class="placeholder"
+          id="duration"
+          placeholder="Enter Service Duration in Minutes"
+          required=""
+          type="number"
+          value=""
+        />
+        <input
+          class="placeholder"
+          id="price"
+          placeholder="Enter Service Price"
+          required=""
+          type="number"
+          value=""
+        />
+      </div>
+      <button
+        class="add_services"
+        type="submit"
+      >
+        Add Service
+      </button>
+    </form>
+  </div>
+</div>
+`;

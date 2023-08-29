@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserReservations component adds users reservations correctly 1`] = `
+<div>
+  <div
+    class="reserveForm flexColumn"
+  >
+    <p
+      class="headline"
+    >
+      <i>
+        You have no reservations.
+      </i>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`UserReservations component fetches users reservations correctly 1`] = `
+<div>
+  <div
+    class="reserveForm flexColumn"
+  >
+    <p
+      class="headline"
+    >
+      <i>
+        You have no reservations.
+      </i>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`userReservations page renders correctly 1`] = `
+<div
+  className="reserveForm flexColumn"
+>
+  <p
+    className="headline"
+  >
+    <i>
+      You have no reservations.
+    </i>
+  </p>
+</div>
+`;
