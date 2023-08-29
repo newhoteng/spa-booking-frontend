@@ -22,6 +22,9 @@
 
 .add-service-form-group {
   width: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
 }
 
 .header {
@@ -46,7 +49,7 @@ input::placeholder {
 }
 
 .placeholder_desc {
-  height: 100px;
+  height: 100px !important;
 }
 
 .add_services {
