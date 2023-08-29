@@ -2,7 +2,6 @@
 
 exports[`AddService component matches snapshot when not submitted 1`] = `
 <div>
-   
   <div
     class="add-service-container"
   >

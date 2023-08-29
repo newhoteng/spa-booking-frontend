@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import { getUserReservations, postReservation } from './redux/reservations/reservationsSlice';
 
 // Component imports
-import UserReservations from './components/UserReservations'
+import UserReservations from './components/UserReservations';
 
 const mockStore = configureStore([thunk]);
 
@@ -20,7 +20,7 @@ describe('UserReservations component', () => {
       },
       services: {
         services: [],
-      }
+      },
     });
 
     // Dispatch the asynchronous action
@@ -44,7 +44,7 @@ describe('UserReservations component', () => {
       },
       services: {
         services: [],
-      }
+      },
     });
 
     // Dispatch the asynchronous action
@@ -69,7 +69,7 @@ it('userReservations page renders correctly', () => {
     },
     services: {
       services: [],
-    }
+    },
   });
 
   const userReservations = renderer
@@ -89,7 +89,7 @@ it('renders Current component', () => {
     },
     services: {
       services: [],
-    }
+    },
   });
 
   render(
