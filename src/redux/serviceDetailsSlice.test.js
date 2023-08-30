@@ -41,4 +41,13 @@ describe('serviceDetailsSlice', () => {
     expect(actions[1].type).toEqual(fetchServiceDetails.fulfilled.type); // Check index 1
     expect(actions[1].payload).toEqual(mockServiceData); // Check index 1
   });
+
+  test('fetchServiceDetails handles error', async () => {
+    axios.get.mockRejectedValueOnce(new Error('Network Error'));
+  
+    await store.dispatch(fetchServiceDetails(1));
+  
+    const actions = store.getActions();
+    expect(actions[1].type).toEqual(fetchServiceDetails.rejected.type); // Check index 1
+  });
 });
