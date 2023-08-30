@@ -30,15 +30,6 @@ export const postReservation = createAsyncThunk(
   },
 );
 
-// export const postReservation = createAsyncThunk('rese/p', async (newReservation) => {
-//   try {
-//     const resp = await axios.post(postUrl, newReservation);
-//     return resp.data;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue('something went wrong');
-//   }
-// });
-
 const reservationsSlice = createSlice({
   name: 'userReservations',
   initialState,
