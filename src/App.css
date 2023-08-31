@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+#home html {
+  font-size: 1em;
+  margin: 0;
+}
+
+.main-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  margin-left: 250px;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.main-home h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0 0 0.2rem 0;
+}
+
+.service-main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 3em;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.mySwiper {
+  position: static;
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.swiper-btn-next,
+.swiper-btn-prev {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background-color: #96bf03;
+  color: #fff;
+  width: 75px;
+  height: 58px;
+  top: 50%;
+  translate: 0 -230%;
+  border-radius: 29px 0 0 29px;
+  padding: 1.5rem;
+  border: none;
+  z-index: 1;
+}
+
+.swiper-btn-next {
+  justify-content: flex-start;
+  right: 0;
+}
+
+.swiper-btn-prev {
+  justify-content: flex-end;
+  left: 0;
+  border-radius: 0  29px 29px 0;
+}
+
+.swiper-btn:hover {
+  background-color: gray;
+  color: white;
+}
+
+.swiper-svg1 {
+  height: 1.3em;
+  transform: scaleX(-1);
+}
+
+.swiper-svg {
+  height: 1.3em;
+}
+
+.swiper-slide {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-font {
+  font-size: 1.1em;
+  font-weight: 800;
+  margin: 0;
+}
+
+.p-font {
+  font-size: 0.8em;
+  color: #bcbcbc;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+}
+
+.desc-font {
+  margin: 1.5rem 0 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 3rem;
+}
+
+.icons {
+  display: flex;
+  font-size: 0.8em;
+  justify-content: center;
+  gap: 1rem;
+  color: #d2d1d1;
+}
+
+.service-ul {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 3em;
+}
+
+.image {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  margin: 0 auto 3em;
+  border-radius: 115px;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.5rem;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-circle {
+  border: 2px solid #d2d1d1;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotted-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  background-color: #e3e3e3;
+  border-radius: 1.5px;
+}
+
+.swiper-button-disabled {
+  background-color: #efefef;
+}
+
+@media only screen and (max-width: 767px) {
+  .swiper-btn-next,
+  .swiper-btn-prev {
+    width: 60px;
+  }
+
+  .main-home {
+    width: 100%;
+    padding: 1em;
+    margin-left: 0;
+    height: calc(100vh - 5em);
+    margin-top: 5em;
+  }
+
+  .swiper-btn-next {
+    right: -1rem;
+  }
+
+  .swiper-btn-prev {
+    left: -1rem;
+  }
+}

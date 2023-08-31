@@ -1,0 +1,253 @@
+.formContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: url("authbackground.webp") no-repeat center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000vmax rgba(255, 180, 0, 0.9);
+}
+
+.err-msg {
+  color: red;
+  margin: 0;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+form {
+  min-width: 275px;
+  text-align: center;
+}
+
+.formContainer input {
+  height: 50px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="textarea"],
+input[type="number"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="textarea"]:focus,
+input[type="number"]:focus {
+  background: transparent;
+  outline: none;
+  border-radius: 25px;
+  border: 1px solid #fff;
+}
+
+.formContainer input::placeholder {
+  color: #fff;
+}
+
+.formContainer button {
+  background-color: #96bf03;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.formContainer a {
+  color: inherit;
+}
+
+.reserveForm {
+  margin-left: 250px;
+  background-color: #96bf03;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 150px;
+  height: 50px;
+}
+
+.selectBox {
+  appearance: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding: 0 30px 0 15px;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.backArrow {
+  font-size: 2rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.arrowIcon {
+  height: 100%;
+  position: absolute;
+  right: 15px;
+}
+
+.calendarIcon {
+  font-size: 0.8rem;
+}
+
+.selectBox:focus {
+  outline: none;
+}
+
+.reserveForm button {
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #96bf03;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+input[type="date"] {
+  background-color: transparent;
+  height: 50px;
+  width: 150px;
+  border-radius: 25px;
+  color: #fff;
+  padding: 0 15px;
+  border: 1px solid #fff;
+  appearance: none;
+  z-index: 1;
+}
+
+input[type="date"]:focus {
+  outline: none;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.reserveFormOnly {
+  background: url("bookingbackground.jpg") no-repeat center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000vmax rgba(151, 191, 13, 0.9);
+  text-align: center;
+  margin-left: 0;
+  position: relative;
+}
+
+.reserveFormOnly p {
+  margin: 0 0 3rem;
+}
+
+#success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#success-message p {
+  margin: 0;
+  text-align: center;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.reserveForm form {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headline {
+  margin: 0;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  padding: 0 4rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.5px solid #fff;
+}
+
+.reserveForm table {
+  border-collapse: collapse;
+}
+
+.reserveForm td,
+.reserveForm th {
+  border: 1px solid #fff;
+  text-align: left;
+  padding: 8px;
+}
+
+.removed {
+  background-color: rgb(31, 165, 165);
+  border-radius: 4px;
+  border: 2px solid rgb(31, 165, 165);
+  color: white;
+  width: fit-content;
+}
+
+@media all and (max-width: 768px) {
+  .reserveForm form {
+    flex-direction: column;
+  }
+
+  .reserveForm {
+    margin-left: 0;
+    background-color: #96bf03;
+    min-height: calc(100vh - 5em);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5em;
+    padding: 1.5rem 0;
+  }
+
+  .reserveFormOnly {
+    padding: 0 2rem;
+  }
+}

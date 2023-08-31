@@ -1,0 +1,100 @@
+.mobile {
+  position: relative;
+}
+
+.mobile nav {
+  width: 100%;
+  height: 5em;
+  padding: 1em;
+  border-bottom: 2px solid #f1f1f1;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 3.5em;
+}
+
+.burger-menu {
+  width: 3em;
+  height: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burgerBar {
+  width: 100%;
+  height: 0.5em;
+  background-color: black;
+  border-radius: 0.5em;
+}
+
+.menu {
+  width: 100%;
+  height: calc(100vh - 5em);
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inherit;
+}
+
+/* animations */
+
+/* clicked */
+.burgerBar.clicked:nth-child(1) {
+  transform: rotate(45deg) translate(0.7em, 0.7em);
+  transition: ease-out 0.5s;
+}
+
+.burgerBar.clicked:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerBar.clicked:nth-child(3) {
+  transform: rotate(135deg) translate(-0.7em, 0.75em);
+  transition: ease-out 0.5s;
+}
+
+/* unclicked */
+.burgerBar.unclicked {
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+
+.menu ul {
+  padding: 0;
+}
+
+.menu li {
+  text-align: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 1rem 0;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+
+.menu button {
+  margin: 0 auto;
+  display: block;
+}
