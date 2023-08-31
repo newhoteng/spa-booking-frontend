@@ -41,6 +41,7 @@ const AddService = () => {
     setPrice('');
   };
 
+  // Handle the "Continue Adding" button click to reset submission status
   const handleContinueAdding = () => {
     setIsSubmitted(false);
   };
