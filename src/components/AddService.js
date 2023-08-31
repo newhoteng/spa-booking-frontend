@@ -33,7 +33,7 @@ const AddService = () => {
     if (response.type === 'services/addService/fulfilled') {
       setIsSubmitted(true);
     }
-     // Clear form fields after submission
+    // Clear form fields after submission
     setName('');
     setImage('');
     setDescription('');
