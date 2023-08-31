@@ -16,6 +16,7 @@ function UserReservations() {
     dispatch(getUserReservations());
   }, [dispatch]);
 
+  // Render a loading message while data is being fetched
   if (isLoading) {
     return (
       <ul className={`${styles.reserveForm}`}>
@@ -23,6 +24,7 @@ function UserReservations() {
       </ul>
     );
   }
+  // Render an error message if there's an error during data retrieval
   if (error) {
     return (
       <ul className={`${styles.reserveForm}`}>
