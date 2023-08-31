@@ -7,6 +7,8 @@ import styles from '../styles/AddService.module.css';
 const AddService = () => {
   // Initialize Redux dispatch
   const dispatch = useDispatch();
+
+  // Define state variables for form inputs and submission status
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
