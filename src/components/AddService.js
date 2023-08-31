@@ -5,7 +5,10 @@ import { addService } from '../redux/serviceSlice';
 import styles from '../styles/AddService.module.css';
 
 const AddService = () => {
+  // Initialize Redux dispatch
   const dispatch = useDispatch();
+
+  // Define state variables for form inputs and submission status
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
@@ -13,8 +16,10 @@ const AddService = () => {
   const [price, setPrice] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Dispatch the 'addService' action with service details
     const response = await dispatch(
       addService({
         name,
@@ -24,9 +29,11 @@ const AddService = () => {
         price,
       }),
     );
+    // If the action was successful, set the submission status to true
     if (response.type === 'services/addService/fulfilled') {
       setIsSubmitted(true);
     }
+    // Clear form fields after submission
     setName('');
     setImage('');
     setDescription('');
@@ -34,6 +41,7 @@ const AddService = () => {
     setPrice('');
   };
 
+  // Handle the "Continue Adding" button click to reset submission status
   const handleContinueAdding = () => {
     setIsSubmitted(false);
   };

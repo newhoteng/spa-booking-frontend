@@ -5,15 +5,18 @@ import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
 function UserReservations() {
+  // Use Redux selectors to access data from the store
   const { userReservations, isLoading, error } = useSelector((store) => store.userReservations);
   const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
 
+  // useEffect hook to dispatch actions when the component mounts
   useEffect(() => {
     dispatch(fetchAllServices());
     dispatch(getUserReservations());
   }, [dispatch]);
 
+  // Render a loading message while data is being fetched
   if (isLoading) {
     return (
       <ul className={`${styles.reserveForm}`}>
@@ -21,6 +24,7 @@ function UserReservations() {
       </ul>
     );
   }
+  // Render an error message if there's an error during data retrieval
   if (error) {
     return (
       <ul className={`${styles.reserveForm}`}>
