@@ -5,6 +5,7 @@ import { addService } from '../redux/serviceSlice';
 import styles from '../styles/AddService.module.css';
 
 const AddService = () => {
+  // Initialize Redux dispatch
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
