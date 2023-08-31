@@ -5,6 +5,7 @@ import { fetchAllServices } from '../redux/serviceSlice';
 import styles from '../styles/Forms.module.css';
 
 function UserReservations() {
+  // Use Redux selectors to access data from the store
   const { userReservations, isLoading, error } = useSelector((store) => store.userReservations);
   const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
