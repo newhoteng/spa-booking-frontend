@@ -19,6 +19,7 @@ const AddService = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Dispatch the 'addService' action with service details
     const response = await dispatch(
       addService({
         name,
