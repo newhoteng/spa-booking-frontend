@@ -10,6 +10,7 @@ function UserReservations() {
   const { services } = useSelector((store) => store.services);
   const dispatch = useDispatch();
 
+  // useEffect hook to dispatch actions when the component mounts
   useEffect(() => {
     dispatch(fetchAllServices());
     dispatch(getUserReservations());
