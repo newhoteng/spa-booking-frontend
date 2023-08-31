@@ -16,6 +16,7 @@ const AddService = () => {
   const [price, setPrice] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await dispatch(
