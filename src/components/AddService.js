@@ -29,6 +29,7 @@ const AddService = () => {
         price,
       }),
     );
+    // If the action was successful, set the submission status to true
     if (response.type === 'services/addService/fulfilled') {
       setIsSubmitted(true);
     }
