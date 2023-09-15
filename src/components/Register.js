@@ -38,7 +38,7 @@ function Register() {
           <p>Registered successfully!</p>
           <div className={styles['success-actions']}>
             <Link to="/login">
-              <button type="button">Login</button>
+              <button type="button">Log In</button>
             </Link>
           </div>
         </div>

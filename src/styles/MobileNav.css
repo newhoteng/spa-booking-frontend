@@ -97,4 +97,18 @@
 .menu button {
   margin: 0 auto;
   display: block;
+  padding: 0 0.5rem;
+  letter-spacing: -1px;
+  font-weight: 500;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: #fff;
+  border: none;
+}
+
+.menu button:hover {
+  color: #96bf03;
+  border: 1px solid #96bf03;
+  background-color: #fff;
 }

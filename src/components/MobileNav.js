@@ -49,7 +49,7 @@ const MobileNav = () => {
           <li><NavLink onClick={handleNavClick} to="/myreservations">MY RESERVATIONS</NavLink></li>
           <li><NavLink onClick={handleNavClick} to="/add_service">ADD SERVICE</NavLink></li>
           <li><NavLink onClick={handleNavClick} to="/delete">DELETE SERVICE</NavLink></li>
-          <button className="btn btn-outline-secondary" type="button" onClick={handleLogout}>Logout</button>
+          <button type="button" onClick={handleLogout}>LOG OUT</button>
         </ul>
       </div>
       <Outlet />
