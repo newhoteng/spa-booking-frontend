@@ -19,9 +19,22 @@ header {
 }
 
 header button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  width: 60%;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  margin: 0 auto;
+}
+
+header button:hover {
+  color: #96bf03;
+  border: 1px solid #96bf03;
+  background-color: #fff;
 }
 
 nav {
@@ -76,9 +89,3 @@ nav li:hover {
 .logo {
   font-size: 3rem;
 }
-
-/* @media all and (max-width: 768px) {
-  .reserveForm form {
-    flex-direction: column;
-  }
-} */

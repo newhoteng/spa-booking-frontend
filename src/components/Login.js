@@ -65,7 +65,7 @@ function Login() {
           className="form-control"
         />
         <br />
-        <button type="submit" className="btn btn-secondary">login</button>
+        <button type="submit" className="btn btn-secondary">Log In</button>
       </form>
       <Link to="/register"><p>Don&apos;t have an account? Sign up</p></Link>
     </div>

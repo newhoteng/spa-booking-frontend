@@ -19,7 +19,6 @@ function DesktopNav() {
   return (
     <div>
       <header className={`${styles.flexColumn}`}>
-        <button className="btn btn-outline-secondary" type="button" onClick={handleLogout}>Logout</button>
         <div><BiSpa className={`${styles.logo}`} /></div>
         <nav>
           <ul className={`${styles.pagenav}`}>
@@ -28,6 +27,7 @@ function DesktopNav() {
             <li><NavLink style={navLinkStyles} to="/myreservations">MY RESERVATIONS</NavLink></li>
             <li><NavLink style={navLinkStyles} to="/add_service">ADD SERVICE</NavLink></li>
             <li><NavLink style={navLinkStyles} to="/delete">DELETE SERVICE</NavLink></li>
+            <button type="button" onClick={handleLogout}>LOG OUT</button>
           </ul>
         </nav>
         <div className={`${styles.footer} ${styles.flexColumn}`}>
